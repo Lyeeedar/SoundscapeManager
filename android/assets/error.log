@@ -1,0 +1,12 @@
+com.badlogic.gdx.utils.GdxRuntimeException: Element Struct doesn't have attribute or child: Enabled
+	at com.badlogic.gdx.utils.XmlReader$Element.getBoolean(XmlReader.java:717)
+	at com.lyeeedar.SoundScape.parse(SoundScape.kt:85)
+	at com.lyeeedar.Screens.MusicManagerScreen.loadSoundScape(MusicManagerScreen.kt:153)
+	at com.lyeeedar.Screens.MusicManagerScreen$create$$inlined$table$lambda$1.clicked(events.kt:149)
+	at com.badlogic.gdx.scenes.scene2d.utils.ClickListener.touchUp(ClickListener.java:89)
+	at com.badlogic.gdx.scenes.scene2d.InputListener.handle(InputListener.java:58)
+	at com.badlogic.gdx.scenes.scene2d.Stage.touchUp(Stage.java:353)
+	at com.badlogic.gdx.InputMultiplexer.touchUp(InputMultiplexer.java:96)
+	at com.badlogic.gdx.backends.lwjgl.LwjglInput.processEvents(LwjglInput.java:332)
+	at com.badlogic.gdx.backends.lwjgl.LwjglApplication.mainLoop(LwjglApplication.java:217)
+	at com.badlogic.gdx.backends.lwjgl.LwjglApplication$1.run(LwjglApplication.java:126)
