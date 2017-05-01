@@ -40,7 +40,8 @@
 			<Sounds>
 				<LoopedMusic>
 					<File>Effects/rain2</File>
-					<Volume>1</Volume>
+					<Volume>1,1</Volume>
+					<SwapTime>1,1</SwapTime>
 				</LoopedMusic>
 			</Sounds>
 		</Layer>
@@ -70,6 +71,16 @@
 				</RepeatingSound>
 			</Sounds>
 		</Layer>
+		<Layer>
+			<Name>Wind</Name>
+			<Sounds>
+				<LoopedMusic>
+					<File>Effects/Wind</File>
+					<Volume>0.6,0.8</Volume>
+					<SwapTime>0.5,3</SwapTime>
+				</LoopedMusic>
+			</Sounds>
+		</Layer>
 	</Layers>
 	<Presets>
 		<Preset>
@@ -87,6 +98,11 @@
 				</Struct>
 				<Struct>
 					<Layer>Thunder</Layer>
+					<Enabled>false</Enabled>
+					<Volume>1</Volume>
+				</Struct>
+				<Struct>
+					<Layer>Wind</Layer>
 					<Enabled>false</Enabled>
 					<Volume>1</Volume>
 				</Struct>
@@ -110,6 +126,11 @@
 					<Enabled>false</Enabled>
 					<Volume>1</Volume>
 				</Struct>
+				<Struct>
+					<Layer>Wind</Layer>
+					<Enabled>true</Enabled>
+					<Volume>0.5</Volume>
+				</Struct>
 			</Layers>
 		</Preset>
 		<Preset>
@@ -127,6 +148,11 @@
 				</Struct>
 				<Struct>
 					<Layer>Thunder</Layer>
+					<Enabled>true</Enabled>
+					<Volume>1</Volume>
+				</Struct>
+				<Struct>
+					<Layer>Wind</Layer>
 					<Enabled>true</Enabled>
 					<Volume>1</Volume>
 				</Struct>

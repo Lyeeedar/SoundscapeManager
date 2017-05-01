@@ -1,7 +1,9 @@
-com.badlogic.gdx.utils.GdxRuntimeException: Element Struct doesn't have attribute or child: Enabled
-	at com.badlogic.gdx.utils.XmlReader$Element.getBoolean(XmlReader.java:717)
-	at com.lyeeedar.SoundScape.parse(SoundScape.kt:85)
-	at com.lyeeedar.Screens.MusicManagerScreen.loadSoundScape(MusicManagerScreen.kt:153)
+com.badlogic.gdx.utils.GdxRuntimeException: Element LoopedMusic doesn't have attribute or child: Volume
+	at com.badlogic.gdx.utils.XmlReader$Element.get(XmlReader.java:663)
+	at com.lyeeedar.LoopedMusic.parse(LoopedMusic.kt:145)
+	at com.lyeeedar.SoundLayer.parse(SoundLayer.kt:91)
+	at com.lyeeedar.SoundScape.parse(SoundScape.kt:75)
+	at com.lyeeedar.Screens.MusicManagerScreen.loadSoundScape(MusicManagerScreen.kt:154)
 	at com.lyeeedar.Screens.MusicManagerScreen$create$$inlined$table$lambda$1.clicked(events.kt:149)
 	at com.badlogic.gdx.scenes.scene2d.utils.ClickListener.touchUp(ClickListener.java:89)
 	at com.badlogic.gdx.scenes.scene2d.InputListener.handle(InputListener.java:58)

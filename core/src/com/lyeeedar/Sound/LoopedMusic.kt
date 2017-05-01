@@ -3,13 +3,26 @@ package com.lyeeedar
 import com.badlogic.gdx.Gdx
 import com.badlogic.gdx.audio.Music
 import com.badlogic.gdx.utils.XmlReader
+import com.lyeeedar.Util.Random
 import com.lyeeedar.Util.clamp
 
 class LoopedMusic : ISoundChannel
 {
 	lateinit var name: String
 	var music: Music? = null
-	var volume: Float = 1f
+
+	var minVolume: Float = 1f
+	var maxVolume: Float = 1f
+	var minSwapTime: Float = 1f
+	var maxSwapTime: Float = 1f
+
+	var targetVolume: Float = 1f
+	var swapTime: Float = 0f
+	var swapPoint: Float = 0f
+	var lastVolume: Float = 1f
+
+	val currentVolume: Float
+		get() = lastVolume + (swapPoint / swapTime).clamp(0f, 1f) * (targetVolume - lastVolume)
 
 	var fadeTime: Float = 0f
 	var fadePoint: Float = 0f
@@ -33,7 +46,7 @@ class LoopedMusic : ISoundChannel
 
 		if (!isFading && music != null)
 		{
-			music!!.volume = parentVolume * this.volume
+			music!!.volume = parentVolume * this.currentVolume
 		}
 	}
 
@@ -60,6 +73,17 @@ class LoopedMusic : ISoundChannel
 	{
 		if (music == null) return
 
+		swapPoint += delta
+		music!!.volume = currentVolume * parentVolume
+
+		if (swapPoint >= swapTime)
+		{
+			lastVolume = targetVolume
+			targetVolume = minVolume + Random.random() * (maxVolume - minVolume)
+			swapTime = minSwapTime + Random.random() * (maxSwapTime - minSwapTime)
+			swapPoint = 0f
+		}
+
 		if (isFading)
 		{
 			fadePoint += delta
@@ -69,11 +93,11 @@ class LoopedMusic : ISoundChannel
 			if (fadeIn)
 			{
 				if (!music!!.isPlaying) music!!.play()
-				music!!.volume = volume * alpha * parentVolume
+				music!!.volume = currentVolume * alpha * parentVolume
 			}
 			else
 			{
-				music!!.volume = volume * (1f - alpha) * parentVolume
+				music!!.volume = currentVolume * (1f - alpha) * parentVolume
 			}
 
 			if (isFadeComplete)
@@ -82,7 +106,7 @@ class LoopedMusic : ISoundChannel
 
 				if (fadeIn)
 				{
-					music!!.volume = volume * parentVolume
+					music!!.volume = currentVolume * parentVolume
 				}
 				else
 				{
@@ -117,6 +141,16 @@ class LoopedMusic : ISoundChannel
 	override fun parse(xml: XmlReader.Element)
 	{
 		name = xml.get("File")
-		volume = xml.getFloat("Volume")
+
+		val volumeStr = xml.get("Volume", "1,1").split(",")
+		minVolume = volumeStr[0].toFloat()
+		maxVolume = volumeStr[1].toFloat()
+
+		targetVolume = minVolume + Random.random() * (maxVolume - minVolume)
+		lastVolume = targetVolume
+
+		val swapStr = xml.get("SwapTime", "1,1").split(",")
+		minSwapTime = swapStr[0].toFloat()
+		maxSwapTime = swapStr[1].toFloat()
 	}
 }

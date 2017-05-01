@@ -68,7 +68,8 @@
 			<Sounds>
 				<LoopedMusic>
 					<File>Effects/rain2</File>
-					<Volume>1</Volume>
+					<Volume>0.8,1</Volume>
+					<SwapTime>0.5,2</SwapTime>
 				</LoopedMusic>
 			</Sounds>
 		</Layer>
@@ -171,6 +172,13 @@
 					<Pitch>0.7,1.5</Pitch>
 					<Volume>0,0.2</Volume>
 				</RepeatingSound>
+				<RepeatingSound>
+					<Name>Growl</Name>
+					<Type>Interval</Type>
+					<Repeat>60,600</Repeat>
+					<Pitch>0.7,1.1</Pitch>
+					<Volume>0.1,0.2</Volume>
+				</RepeatingSound>
 			</Sounds>
 		</Layer>
 		<Layer>
@@ -197,6 +205,16 @@
 					<Pitch>0.9,1.1</Pitch>
 					<Volume>0.3,0.6</Volume>
 				</RepeatingSound>
+			</Sounds>
+		</Layer>
+		<Layer>
+			<Name>Wind</Name>
+			<Sounds>
+				<LoopedMusic>
+					<File>Effects/Wind</File>
+					<Volume>0.6,0.8</Volume>
+					<SwapTime>0.5,3</SwapTime>
+				</LoopedMusic>
 			</Sounds>
 		</Layer>
 	</Layers>
@@ -226,8 +244,13 @@
 				</Struct>
 				<Struct>
 					<Layer>Crows</Layer>
-					<Enabled>false</Enabled>
+					<Enabled>true</Enabled>
 					<Volume>1</Volume>
+				</Struct>
+				<Struct>
+					<Layer>Wind</Layer>
+					<Enabled>true</Enabled>
+					<Volume>0.1</Volume>
 				</Struct>
 			</Layers>
 		</Preset>
@@ -259,6 +282,11 @@
 					<Enabled>true</Enabled>
 					<Volume>1</Volume>
 				</Struct>
+				<Struct>
+					<Layer>Wind</Layer>
+					<Enabled>true</Enabled>
+					<Volume>0.3</Volume>
+				</Struct>
 			</Layers>
 		</Preset>
 		<Preset>
@@ -282,10 +310,15 @@
 				<Struct>
 					<Layer>Ambience</Layer>
 					<Enabled>true</Enabled>
-					<Volume>1</Volume>
+					<Volume>0.5</Volume>
 				</Struct>
 				<Struct>
 					<Layer>Crows</Layer>
+					<Enabled>false</Enabled>
+					<Volume>1</Volume>
+				</Struct>
+				<Struct>
+					<Layer>Wind</Layer>
 					<Enabled>true</Enabled>
 					<Volume>1</Volume>
 				</Struct>

@@ -2,13 +2,13 @@
 <LayoutRoot xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <RootPanel Orientation="Horizontal">
     <LayoutAnchorablePane Id="ProjectViewPanel" DockWidth="200">
-      <LayoutAnchorable AutoHideMinWidth="100" AutoHideMinHeight="100" Title="ProjectView" IsSelected="True" ContentId="ProjectView" LastActivationTimeStamp="04/30/2017 08:29:45" PreviousContainerId="ProjectViewPanel" PreviousContainerIndex="0" />
+      <LayoutAnchorable AutoHideMinWidth="100" AutoHideMinHeight="100" Title="ProjectView" IsSelected="True" ContentId="ProjectView" LastActivationTimeStamp="04/30/2017 09:51:32" PreviousContainerId="ProjectViewPanel" PreviousContainerIndex="0" />
     </LayoutAnchorablePane>
     <LayoutDocumentPane Id="DocumentPanel">
-      <LayoutAnchorable AutoHideMinWidth="100" AutoHideMinHeight="100" Title="StartPage" IsSelected="True" ContentId="StartPage" LastActivationTimeStamp="04/30/2017 10:10:26" PreviousContainerId="DocumentPanel" PreviousContainerIndex="0" />
+      <LayoutAnchorable AutoHideMinWidth="100" AutoHideMinHeight="100" Title="StartPage" IsSelected="True" ContentId="StartPage" LastActivationTimeStamp="04/30/2017 23:50:24" PreviousContainerId="DocumentPanel" PreviousContainerIndex="0" />
     </LayoutDocumentPane>
     <LayoutAnchorablePane Id="ToolPanel" DockWidth="250">
-      <LayoutAnchorable AutoHideMinWidth="100" AutoHideMinHeight="100" Title="UndoHistory" IsSelected="True" ContentId="UndoHistory" PreviousContainerId="ToolPanel" PreviousContainerIndex="0" />
+      <LayoutAnchorable AutoHideMinWidth="100" AutoHideMinHeight="100" Title="UndoHistory" IsSelected="True" ContentId="UndoHistory" LastActivationTimeStamp="04/30/2017 19:59:33" PreviousContainerId="ToolPanel" PreviousContainerIndex="0" />
     </LayoutAnchorablePane>
   </RootPanel>
   <TopSide />
@@ -17,6 +17,6 @@
   <BottomSide />
   <FloatingWindows />
   <Hidden>
-    <LayoutAnchorable AutoHideMinWidth="100" AutoHideMinHeight="100" Title="FocusTool" IsSelected="True" ContentId="FocusTool" LastActivationTimeStamp="04/30/2017 08:29:45" PreviousContainerId="ToolPanel" PreviousContainerIndex="0" />
+    <LayoutAnchorable AutoHideMinWidth="100" AutoHideMinHeight="100" Title="FocusTool" IsSelected="True" ContentId="FocusTool" LastActivationTimeStamp="04/30/2017 09:51:32" PreviousContainerId="ToolPanel" PreviousContainerIndex="0" />
   </Hidden>
 </LayoutRoot>
