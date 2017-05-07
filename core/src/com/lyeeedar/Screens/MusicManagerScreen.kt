@@ -1,18 +1,20 @@
 package com.lyeeedar.Screens
 
+import com.badlogic.gdx.Gdx
 import com.badlogic.gdx.scenes.scene2d.Actor
 import com.badlogic.gdx.scenes.scene2d.ui.*
 import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener
 import com.badlogic.gdx.utils.Array
+import com.badlogic.gdx.utils.XmlReader
 import com.lyeeedar.Global
 import com.lyeeedar.SoundScape
 import com.lyeeedar.UI.Seperator
-import com.lyeeedar.Util.children
-import com.lyeeedar.Util.getXml
+import com.lyeeedar.Util.ArchiveFileHandle
 import ktx.actors.onClick
 import ktx.scene2d.scrollPane
 import ktx.scene2d.table
 import ktx.scene2d.textButton
+import java.util.zip.ZipFile
 
 class MusicManagerScreen : AbstractScreen()
 {
@@ -22,10 +24,14 @@ class MusicManagerScreen : AbstractScreen()
 	{
 		val out = Array<String>()
 
-		val xml = getXml("SoundScapes/SoundScapeList")
-		for (el in xml.children())
+		val folder = Gdx.files.local("SoundScapes")
+
+		for (file in folder.list())
 		{
-			out.add(el.text)
+			if (!file.isDirectory && file.extension() == "zip")
+			{
+				out.add(file.nameWithoutExtension())
+			}
 		}
 
 		return out
@@ -148,13 +154,29 @@ class MusicManagerScreen : AbstractScreen()
 
 	fun loadSoundScape(name: String): SoundScape
 	{
-		val xml = getXml("SoundScapes/$name")
+		val zip = ZipFile("SoundScapes/$name.zip")
 
-		val soundScape = SoundScape()
+		val xml = getXml(zip)
+
+		val soundScape = SoundScape(zip)
 		soundScape.parse(xml)
 
-		soundScape.applyPreset(soundScape.presets.first())
+		if (soundScape.presets.size > 0) soundScape.applyPreset(soundScape.presets.first())
 
 		return soundScape
+	}
+
+	fun getXml(zip: ZipFile): XmlReader.Element
+	{
+		try
+		{
+			val handle = ArchiveFileHandle(zip, "SoundScape.xml")
+			return XmlReader().parse(handle)
+		}
+		catch (ex: Exception)
+		{
+			System.err.println(ex.message)
+			throw ex
+		}
 	}
 }

@@ -4,13 +4,13 @@ import com.badlogic.gdx.Gdx
 import com.badlogic.gdx.audio.Music
 import com.badlogic.gdx.utils.Array
 import com.badlogic.gdx.utils.XmlReader
-import com.lyeeedar.Util.Random
-import com.lyeeedar.Util.children
-import com.lyeeedar.Util.clamp
-import com.lyeeedar.Util.removeRandom
+import com.lyeeedar.Util.*
+import java.util.zip.ZipFile
 
 class ShuffledMusic : ISoundChannel
 {
+	lateinit var zip: ZipFile
+
 	val tracks: Array<Track> = Array()
 	val shuffleIndices: Array<Int> = Array()
 
@@ -64,7 +64,7 @@ class ShuffledMusic : ISoundChannel
 
 		volume = currentTrack!!.volume
 
-		currentMusic = Gdx.audio.newMusic(Gdx.files.internal("Music/${currentTrack!!.name}.ogg"))
+		currentMusic = Gdx.audio.newMusic(zip.getHandle("Music/${currentTrack!!.name}.ogg"))
 		currentMusic!!.setOnCompletionListener { nextTrack() }
 
 		currentMusic!!.play()
@@ -127,8 +127,10 @@ class ShuffledMusic : ISoundChannel
 		}
 	}
 
-	override fun parse(xml: XmlReader.Element)
+	override fun parse(zip: ZipFile, xml: XmlReader.Element)
 	{
+		this.zip = zip
+
 		channelVolume = xml.getFloatAttribute("Volume", 1f)
 
 		for (el in xml.children())

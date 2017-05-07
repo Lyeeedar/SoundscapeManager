@@ -5,31 +5,19 @@
 			<Sounds>
 				<ShuffledMusic Volume="1">
 					<Track>
-						<File>Action/Clash Defiant</File>
+						<File>Action/Van Helsing soundtrack ( Track two ) Burn it down!</File>
 						<Volume>1</Volume>
 					</Track>
 					<Track>
-						<File>Action/Crossing the Chasm</File>
+						<File>Action/Van Helsing soundtrack elleven Final battle</File>
 						<Volume>1</Volume>
 					</Track>
 					<Track>
-						<File>Action/Hit the Streets</File>
+						<File>Action/Van Helsing soundtrack five Attacking Brides</File>
 						<Volume>1</Volume>
 					</Track>
 					<Track>
-						<File>Action/Hitman</File>
-						<Volume>1</Volume>
-					</Track>
-					<Track>
-						<File>Action/Stormfront</File>
-						<Volume>1</Volume>
-					</Track>
-					<Track>
-						<File>Action/Urban Gauntlet</File>
-						<Volume>1</Volume>
-					</Track>
-					<Track>
-						<File>Action/Volatile Reaction</File>
+						<File>Action/Van Helsing soundtrack track eight Transylvnian horses</File>
 						<Volume>1</Volume>
 					</Track>
 				</ShuffledMusic>
@@ -49,21 +37,21 @@
 			<Name>Thunder</Name>
 			<Sounds>
 				<RepeatingSound>
-					<Name>Thunder1</Name>
+					<File>Thunder1</File>
 					<Type>Interval</Type>
 					<Repeat>30,80</Repeat>
 					<Pitch>0.7,1.2</Pitch>
 					<Volume>0.4,1</Volume>
 				</RepeatingSound>
 				<RepeatingSound>
-					<Name>Thunder2</Name>
+					<File>Thunder2</File>
 					<Type>Interval</Type>
 					<Repeat>10,80</Repeat>
 					<Pitch>0.7,1.2</Pitch>
 					<Volume>0.4,1</Volume>
 				</RepeatingSound>
 				<RepeatingSound>
-					<Name>Thunder3</Name>
+					<File>Thunder3</File>
 					<Type>Interval</Type>
 					<Repeat>20,80</Repeat>
 					<Pitch>0.7,1.2</Pitch>
@@ -103,8 +91,8 @@
 				</Struct>
 				<Struct>
 					<Layer>Wind</Layer>
-					<Enabled>false</Enabled>
-					<Volume>1</Volume>
+					<Enabled>true</Enabled>
+					<Volume>0.3</Volume>
 				</Struct>
 			</Layers>
 		</Preset>

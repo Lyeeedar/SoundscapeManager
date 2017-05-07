@@ -1,28 +1,17 @@
 package com.lyeeedar.desktop
 
-import com.badlogic.gdx.files.FileHandle
-import com.badlogic.gdx.utils.Array
+import com.badlogic.gdx.Gdx
+import com.lyeeedar.Util.getXml
 import java.io.File
+import java.io.FileOutputStream
+import java.util.zip.ZipEntry
+import java.util.zip.ZipOutputStream
 
 class SoundscapeProcessor
 {
-	val files = Array<String>()
-
 	init
 	{
 		findFilesRecursive(File("SoundScapes"))
-
-		var out = "<SoundScapes>"
-
-		for (file in files)
-		{
-			out += "\t<SoundScape>$file</SoundScape>"
-		}
-
-		out += "</SoundScapes>"
-
-		val outHandle = FileHandle(File("SoundScapes/SoundScapeList.xml"))
-		outHandle.writeString(out, false)
 	}
 
 	private fun findFilesRecursive(dir: File)
@@ -37,13 +26,47 @@ class SoundscapeProcessor
 			}
 			else if (file.path.endsWith(".xml") && !file.path.contains("SoundScapeList"))
 			{
-				var path = file.path
-				path = path.replace( "\\", "/" )
-				path = path.replace( "SoundScapes/", "" )
-				path = path.replace( ".xml", "" )
-
-				files.add(path)
+				processFile(file)
 			}
 		}
+	}
+
+	fun processFile(file: File)
+	{
+		val xml = getXml(file.path)
+
+		val occurances = xml.getChildrenByNameRecursively("File")
+
+		val zipFile = File("SoundScapes/" + file.nameWithoutExtension + ".zip")
+		val out = ZipOutputStream(FileOutputStream(zipFile))
+
+		fun tryWriteFile(path: String, overrideEntryName: String? = null): Boolean
+		{
+			if (!Gdx.files.local(path).exists()) return false
+
+			val dataBytes = Gdx.files.local(path).file().readBytes()
+
+			val name = overrideEntryName ?: path
+
+			val e = ZipEntry(name)
+			out.putNextEntry(e)
+
+			out.write(dataBytes, 0, dataBytes.size)
+			out.closeEntry()
+
+			return true
+		}
+
+		tryWriteFile("SoundScapes/" + file.nameWithoutExtension + ".xml", "SoundScape.xml")
+
+		for (occurance in occurances)
+		{
+			var found = tryWriteFile("Music/"+occurance.text+".ogg")
+			if (!found) found = tryWriteFile("Sounds/"+occurance.text+".ogg")
+
+			if (!found) throw Exception("Invalid music or sound '" + occurance.text + "' in file '" + file.path)
+		}
+
+		out.close()
 	}
 }

@@ -3,8 +3,9 @@ package com.lyeeedar
 import com.badlogic.gdx.utils.Array
 import com.badlogic.gdx.utils.XmlReader
 import com.lyeeedar.Util.children
+import java.util.zip.ZipFile
 
-class SoundScape
+class SoundScape(val zip: ZipFile)
 {
 	internal val layers: Array<SoundLayer> = Array()
 	val presets: Array<Preset> = Array()
@@ -69,10 +70,12 @@ class SoundScape
 		val layersEl = xml.getChildByName("Layers")
 		val presetsEl = xml.getChildByName("Presets")
 
+		if (layersEl == null) return
+
 		for (el in layersEl.children())
 		{
 			val layer = SoundLayer()
-			layer.parse(el)
+			layer.parse(zip, el)
 
 			layers.add(layer)
 		}

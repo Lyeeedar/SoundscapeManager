@@ -21,19 +21,7 @@
 						<Volume>1</Volume>
 					</Track>
 					<Track>
-						<File>Explore/Echoes of Time v2</File>
-						<Volume>1</Volume>
-					</Track>
-					<Track>
 						<File>Explore/Giant Wyrm</File>
-						<Volume>1</Volume>
-					</Track>
-					<Track>
-						<File>Explore/Intrepid</File>
-						<Volume>1</Volume>
-					</Track>
-					<Track>
-						<File>Explore/Lost Time</File>
 						<Volume>1</Volume>
 					</Track>
 					<Track>
@@ -53,12 +41,8 @@
 						<Volume>1</Volume>
 					</Track>
 					<Track>
-						<File>Explore/Unseen Horrors</File>
-						<Volume>1</Volume>
-					</Track>
-					<Track>
 						<File>Explore/Vanishing</File>
-						<Volume>1</Volume>
+						<Volume>0.8</Volume>
 					</Track>
 				</ShuffledMusic>
 			</Sounds>
@@ -77,21 +61,21 @@
 			<Name>Thunder</Name>
 			<Sounds>
 				<RepeatingSound>
-					<Name>Thunder1</Name>
+					<File>Thunder1</File>
 					<Type>Interval</Type>
 					<Repeat>30,80</Repeat>
 					<Pitch>0.7,1.2</Pitch>
 					<Volume>0.4,1</Volume>
 				</RepeatingSound>
 				<RepeatingSound>
-					<Name>Thunder2</Name>
+					<File>Thunder2</File>
 					<Type>Interval</Type>
 					<Repeat>10,80</Repeat>
 					<Pitch>0.7,1.2</Pitch>
 					<Volume>0.4,1</Volume>
 				</RepeatingSound>
 				<RepeatingSound>
-					<Name>Thunder3</Name>
+					<File>Thunder3</File>
 					<Type>Interval</Type>
 					<Repeat>20,80</Repeat>
 					<Pitch>0.7,1.2</Pitch>
@@ -103,77 +87,77 @@
 			<Name>Ambience</Name>
 			<Sounds>
 				<RepeatingSound>
-					<Name>breath</Name>
+					<File>breath</File>
 					<Type>Interval</Type>
 					<Repeat>30,200</Repeat>
 					<Pitch>0.7,1.2</Pitch>
 					<Volume>0.1,0.3</Volume>
 				</RepeatingSound>
 				<RepeatingSound>
-					<Name>ghost</Name>
+					<File>ghost</File>
 					<Type>Interval</Type>
 					<Repeat>30,200</Repeat>
 					<Pitch>0.7,1.3</Pitch>
 					<Volume>0.1,0.3</Volume>
 				</RepeatingSound>
 				<RepeatingSound>
-					<Name>nightmare1</Name>
+					<File>nightmare1</File>
 					<Type>Interval</Type>
 					<Repeat>30,200</Repeat>
 					<Pitch>0.7,1.3</Pitch>
 					<Volume>0.2,0.4</Volume>
 				</RepeatingSound>
 				<RepeatingSound>
-					<Name>spooky6</Name>
+					<File>spooky6</File>
 					<Type>Interval</Type>
 					<Repeat>30,150</Repeat>
 					<Pitch>0.6,1.2</Pitch>
 					<Volume>0.3,0.6</Volume>
 				</RepeatingSound>
 				<RepeatingSound>
-					<Name>spooky1</Name>
+					<File>spooky1</File>
 					<Type>Interval</Type>
 					<Repeat>150,500</Repeat>
 					<Pitch>0.7,1.5</Pitch>
 					<Volume>0,0.2</Volume>
 				</RepeatingSound>
 				<RepeatingSound>
-					<Name>spooky2</Name>
+					<File>spooky2</File>
 					<Type>Interval</Type>
 					<Repeat>150,500</Repeat>
 					<Pitch>0.7,1.5</Pitch>
 					<Volume>0,0.2</Volume>
 				</RepeatingSound>
 				<RepeatingSound>
-					<Name>spooky3</Name>
+					<File>spooky3</File>
 					<Type>Interval</Type>
 					<Repeat>150,500</Repeat>
 					<Pitch>0.7,1.5</Pitch>
 					<Volume>0,0.2</Volume>
 				</RepeatingSound>
 				<RepeatingSound>
-					<Name>spooky4</Name>
+					<File>spooky4</File>
 					<Type>Interval</Type>
 					<Repeat>150,500</Repeat>
 					<Pitch>0.7,1.5</Pitch>
 					<Volume>0,0.2</Volume>
 				</RepeatingSound>
 				<RepeatingSound>
-					<Name>spooky5</Name>
+					<File>spooky5</File>
 					<Type>Interval</Type>
 					<Repeat>150,500</Repeat>
 					<Pitch>0.7,1.5</Pitch>
 					<Volume>0,0.2</Volume>
 				</RepeatingSound>
 				<RepeatingSound>
-					<Name>spooky7</Name>
+					<File>spooky7</File>
 					<Type>Interval</Type>
 					<Repeat>150,500</Repeat>
 					<Pitch>0.7,1.5</Pitch>
 					<Volume>0,0.2</Volume>
 				</RepeatingSound>
 				<RepeatingSound>
-					<Name>Growl</Name>
+					<File>Growl</File>
 					<Type>Interval</Type>
 					<Repeat>60,600</Repeat>
 					<Pitch>0.7,1.1</Pitch>
@@ -185,21 +169,21 @@
 			<Name>Crows</Name>
 			<Sounds>
 				<RepeatingSound>
-					<Name>crow</Name>
+					<File>crow</File>
 					<Type>Interval</Type>
 					<Repeat>30,150</Repeat>
 					<Pitch>0.9,1.1</Pitch>
 					<Volume>0.3,0.6</Volume>
 				</RepeatingSound>
 				<RepeatingSound>
-					<Name>crow2</Name>
+					<File>crow2</File>
 					<Type>Interval</Type>
 					<Repeat>30,150</Repeat>
 					<Pitch>0.9,1.1</Pitch>
 					<Volume>0.3,0.6</Volume>
 				</RepeatingSound>
 				<RepeatingSound>
-					<Name>crow4</Name>
+					<File>crow4</File>
 					<Type>Interval</Type>
 					<Repeat>30,150</Repeat>
 					<Pitch>0.9,1.1</Pitch>
@@ -240,17 +224,17 @@
 				<Struct>
 					<Layer>Ambience</Layer>
 					<Enabled>true</Enabled>
-					<Volume>0.6</Volume>
+					<Volume>0.3</Volume>
 				</Struct>
 				<Struct>
 					<Layer>Crows</Layer>
 					<Enabled>true</Enabled>
-					<Volume>1</Volume>
+					<Volume>0.4</Volume>
 				</Struct>
 				<Struct>
 					<Layer>Wind</Layer>
 					<Enabled>true</Enabled>
-					<Volume>0.1</Volume>
+					<Volume>0.15</Volume>
 				</Struct>
 			</Layers>
 		</Preset>
@@ -260,7 +244,7 @@
 				<Struct>
 					<Layer>BGM</Layer>
 					<Enabled>true</Enabled>
-					<Volume>0.5</Volume>
+					<Volume>1</Volume>
 				</Struct>
 				<Struct>
 					<Layer>Rain</Layer>
@@ -285,7 +269,7 @@
 				<Struct>
 					<Layer>Wind</Layer>
 					<Enabled>true</Enabled>
-					<Volume>0.3</Volume>
+					<Volume>0.5</Volume>
 				</Struct>
 			</Layers>
 		</Preset>
@@ -295,7 +279,7 @@
 				<Struct>
 					<Layer>BGM</Layer>
 					<Enabled>true</Enabled>
-					<Volume>0.5</Volume>
+					<Volume>1</Volume>
 				</Struct>
 				<Struct>
 					<Layer>Rain</Layer>
