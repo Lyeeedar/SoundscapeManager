@@ -72,14 +72,15 @@ class RepeatingSoundEffect : ISoundChannel
 
 	override fun update(delta: Float)
 	{
-		if (!canPlay) return
-
 		if (type == Type.Continuous)
 		{
 			if (!isPlaying)
 			{
-				soundID = sound!!.loop(volume * parentVolume)
-				isPlaying = true
+				if (canPlay)
+				{
+					soundID = sound!!.loop(volume * parentVolume)
+					isPlaying = true
+				}
 			}
 		}
 		else
@@ -88,8 +89,11 @@ class RepeatingSoundEffect : ISoundChannel
 
 			if (timeAccumulator >= nextRepeat)
 			{
-				soundID = sound!!.play(volume * parentVolume, pitch, 0f)
-				isPlaying = true
+				if (canPlay)
+				{
+					soundID = sound!!.play(volume * parentVolume, pitch, 0f)
+					isPlaying = true
+				}
 
 				nextRepeat = repeat
 				timeAccumulator = 0f

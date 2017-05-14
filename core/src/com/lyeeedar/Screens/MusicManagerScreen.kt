@@ -12,6 +12,7 @@ import com.lyeeedar.UI.Seperator
 import com.lyeeedar.Util.ArchiveFileHandle
 import ktx.actors.onClick
 import ktx.scene2d.scrollPane
+import ktx.scene2d.slider
 import ktx.scene2d.table
 import ktx.scene2d.textButton
 import java.util.zip.ZipFile
@@ -47,6 +48,19 @@ class MusicManagerScreen : AbstractScreen()
 		soundScapeTable = Table()
 
 		val t = table {
+
+			val s = slider(0f, 1f, 0.05f, false, "default-horizontal", Global.skin) {  cell -> cell.pad(10f).colspan(3).growX()
+				value = 1f
+				addListener(object : ChangeListener() {
+					override fun changed(event: ChangeEvent?, actor: Actor?)
+					{
+						currentSoundScape?.volume = value
+					}
+				})
+			}
+
+			row()
+
 			scrollPane("default", Global.skin) { cell -> cell.width(200f).pad(10f)
 				table {
 					for (soundScape in allSoundScapes)
@@ -54,6 +68,7 @@ class MusicManagerScreen : AbstractScreen()
 						 textButton(soundScape, "default", Global.skin) { cell -> cell.width(150f).pad(5f)
 							onClick { inputEvent, kTextButton ->
 								queuedSoundScape = loadSoundScape(soundScape)
+								queuedSoundScape!!.volume = currentSoundScape?.volume ?: s.value
 								fillSoundTable(queuedSoundScape!!, soundScape)
 							}
 						 }

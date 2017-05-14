@@ -5,14 +5,14 @@
 				<Data Name="Name" meta:RefKey="String" />
 				<Data Name="Sounds" meta:RefKey="Collection">
 					<Data Name="RepeatingSound" meta:RefKey="Struct">
-						<Data Name="File" BasePath="SoundScapes/Sounds" StripExtension="True" AllowedFileTypes="mp3,ogg" SkipIfDefault="False" meta:RefKey="File" />
+						<Data Name="File" BasePath="Sounds" StripExtension="True" AllowedFileTypes="mp3,ogg" SkipIfDefault="False" meta:RefKey="File" />
 						<Data Name="Type" EnumValues="Interval,Continuous" SkipIfDefault="False" meta:RefKey="Enum" />
 						<Data Name="Repeat" Name1="Min" Name2="Max" Min="0" Default="30,60" SkipIfDefault="False" meta:RefKey="Vector" />
 						<Data Name="Pitch" Name1="Min" Name2="Max" Min="0.5" Max="2" Default="0.9,1.1" SkipIfDefault="False" meta:RefKey="Vector" />
 						<Data Name="Volume" Name1="Min" Name2="Max" Min="0" Max="1" Default="0.4,0.6" SkipIfDefault="False" meta:RefKey="Vector" />
 					</Data>
 					<Data Name="LoopedMusic" meta:RefKey="Struct">
-						<Data Name="File" BasePath="SoundScapes/Music" StripExtension="True" AllowedFileTypes="ogg" SkipIfDefault="False" meta:RefKey="File" />
+						<Data Name="File" BasePath="Music" StripExtension="True" AllowedFileTypes="ogg" SkipIfDefault="False" meta:RefKey="File" />
 						<Data Name="Volume" Name1="Min" Name2="Max" Min="0" Max="1" Default="1,1" SkipIfDefault="False" meta:RefKey="Vector" />
 						<Data Name="SwapTime" Name1="Min" Name2="Max" Min="0" Max="999999" Default="1,1" SkipIfDefault="False" meta:RefKey="Vector" />
 					</Data>
@@ -21,7 +21,7 @@
 							<Attribute Name="Volume" Min="0" Max="1" Default="1" SkipIfDefault="False" meta:RefKey="Number" />
 						</Attributes>
 						<Data Name="Track" meta:RefKey="Struct">
-							<Data Name="File" BasePath="SoundScapes/Music" StripExtension="True" AllowedFileTypes="ogg" SkipIfDefault="False" meta:RefKey="File" />
+							<Data Name="File" BasePath="Music" StripExtension="True" AllowedFileTypes="ogg" SkipIfDefault="False" meta:RefKey="File" />
 							<Data Name="Volume" Min="0" Max="1" Default="1" SkipIfDefault="False" meta:RefKey="Number" />
 						</Data>
 					</Data>

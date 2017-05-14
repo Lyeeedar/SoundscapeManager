@@ -7,6 +7,17 @@ import java.util.zip.ZipFile
 
 class SoundScape(val zip: ZipFile)
 {
+	var volume: Float = 1f
+		set(value)
+		{
+			field = value
+
+			for (layer in layers)
+			{
+				layer.changeVolume(volume)
+			}
+		}
+
 	internal val layers: Array<SoundLayer> = Array()
 	val presets: Array<Preset> = Array()
 
@@ -31,7 +42,7 @@ class SoundScape(val zip: ZipFile)
 			}
 
 			layer.volume = presetLayer.volume
-			layer.changeVolume(1f)
+			layer.changeVolume(volume)
 		}
 	}
 

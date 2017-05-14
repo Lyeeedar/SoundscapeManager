@@ -1,6 +1,7 @@
 package com.lyeeedar.desktop
 
 import com.badlogic.gdx.Gdx
+import com.badlogic.gdx.utils.ObjectSet
 import com.lyeeedar.Util.getXml
 import java.io.File
 import java.io.FileOutputStream
@@ -40,9 +41,14 @@ class SoundscapeProcessor
 		val zipFile = File("SoundScapes/" + file.nameWithoutExtension + ".zip")
 		val out = ZipOutputStream(FileOutputStream(zipFile))
 
+		val storedFiles = ObjectSet<String>()
 		fun tryWriteFile(path: String, overrideEntryName: String? = null): Boolean
 		{
+			if (storedFiles.contains(path)) return true
+
 			if (!Gdx.files.local(path).exists()) return false
+
+			storedFiles.add(path)
 
 			val dataBytes = Gdx.files.local(path).file().readBytes()
 
