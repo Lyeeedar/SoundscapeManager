@@ -39,7 +39,7 @@ public abstract class AbstractApplicationChanger
 
 	public abstract void updateApplication( Preferences pref );
 
-	public abstract String[] getSupportedDisplayModes();
+	//public abstract String[] getSupportedDisplayModes();
 
-	public abstract void setToNativeResolution( Preferences prefs );
+	//public abstract void setToNativeResolution( Preferences prefs );
 }

@@ -3,9 +3,8 @@ package com.lyeeedar
 import com.badlogic.gdx.utils.Array
 import com.badlogic.gdx.utils.XmlReader
 import com.lyeeedar.Util.children
-import java.util.zip.ZipFile
 
-class SoundScape(val zip: ZipFile)
+class SoundScape()
 {
 	var volume: Float = 1f
 		set(value)
@@ -86,7 +85,7 @@ class SoundScape(val zip: ZipFile)
 		for (el in layersEl.children())
 		{
 			val layer = SoundLayer()
-			layer.parse(zip, el)
+			layer.parse(el)
 
 			layers.add(layer)
 		}

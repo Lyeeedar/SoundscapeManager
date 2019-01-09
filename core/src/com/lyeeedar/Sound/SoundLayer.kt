@@ -3,12 +3,9 @@ package com.lyeeedar
 import com.badlogic.gdx.utils.Array
 import com.badlogic.gdx.utils.XmlReader
 import com.lyeeedar.Util.children
-import java.util.zip.ZipFile
 
 class SoundLayer : ISoundChannel
 {
-	lateinit var zip: ZipFile
-
 	internal val sounds: Array<ISoundChannel> = Array()
 	lateinit var name: String
 	var enabled = true
@@ -75,7 +72,7 @@ class SoundLayer : ISoundChannel
 		disposed = true
 	}
 
-	override fun parse(zip: ZipFile, xml: XmlReader.Element)
+	override fun parse(xml: XmlReader.Element)
 	{
 		name = xml.get("Name")
 
@@ -91,7 +88,7 @@ class SoundLayer : ISoundChannel
 				else -> throw Exception("Unknown sound type '" + el.name + "'!")
 			}
 
-			action.parse(zip, el)
+			action.parse(el)
 
 			sounds.add(action)
 		}

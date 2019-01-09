@@ -3,6 +3,7 @@ package com.lyeeedar
 import com.badlogic.gdx.Gdx
 import com.badlogic.gdx.audio.Music
 import com.badlogic.gdx.utils.XmlReader
+import com.lyeeedar.Util.AssetManager
 import com.lyeeedar.Util.Random
 import com.lyeeedar.Util.clamp
 import com.lyeeedar.Util.getHandle
@@ -12,8 +13,6 @@ class LoopedMusic : ISoundChannel
 {
 	lateinit var name: String
 	var music: Music? = null
-
-	lateinit var zip: ZipFile
 
 	var minVolume: Float = 1f
 	var maxVolume: Float = 1f
@@ -40,7 +39,7 @@ class LoopedMusic : ISoundChannel
 
 	override fun create()
 	{
-		music = Gdx.audio.newMusic(zip.getHandle("Music/$name.ogg"))
+		music = Gdx.audio.newMusic (Gdx.files.internal("Music/$name.ogg"))
 		music!!.isLooping = true
 	}
 
@@ -142,10 +141,8 @@ class LoopedMusic : ISoundChannel
 		}
 	}
 
-	override fun parse(zip: ZipFile, xml: XmlReader.Element)
+	override fun parse(xml: XmlReader.Element)
 	{
-		this.zip = zip
-
 		name = xml.get("File")
 
 		val volumeStr = xml.get("Volume", "1,1").split(",")

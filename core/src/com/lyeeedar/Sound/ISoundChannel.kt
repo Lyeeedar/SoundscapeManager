@@ -1,7 +1,6 @@
 package com.lyeeedar
 
 import com.badlogic.gdx.utils.XmlReader
-import java.util.zip.ZipFile
 
 interface ISoundChannel
 {
@@ -17,5 +16,5 @@ interface ISoundChannel
 
 	fun dispose()
 
-	fun parse(zip: ZipFile,  xml: XmlReader.Element)
+	fun parse(xml: XmlReader.Element)
 }

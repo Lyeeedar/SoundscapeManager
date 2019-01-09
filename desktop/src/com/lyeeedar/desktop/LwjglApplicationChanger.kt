@@ -43,7 +43,7 @@ class LwjglApplicationChanger : AbstractApplicationChanger(LwjglPreferences("gam
 		if (!Global.release)
 		{
 			AtlasCreator()
-			SoundscapeProcessor()
+			//SoundscapeProcessor()
 		}
 	}
 

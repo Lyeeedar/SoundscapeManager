@@ -1,12 +1,10 @@
 package com.lyeeedar
 
-import com.badlogic.gdx.Gdx
 import com.badlogic.gdx.audio.Sound
 import com.badlogic.gdx.math.MathUtils
 import com.badlogic.gdx.utils.XmlReader.Element
+import com.lyeeedar.Util.AssetManager
 import com.lyeeedar.Util.Random
-import com.lyeeedar.Util.getHandle
-import java.util.zip.ZipFile
 
 
 class RepeatingSoundEffect : ISoundChannel
@@ -16,8 +14,6 @@ class RepeatingSoundEffect : ISoundChannel
 		Continuous,
 		Interval
 	}
-
-	lateinit var zip: ZipFile
 
 	private var soundID: Long = 0
 	private lateinit var soundName: String
@@ -50,7 +46,7 @@ class RepeatingSoundEffect : ISoundChannel
 
 	override fun create()
 	{
-		sound = loadSound(zip, soundName)
+		sound = AssetManager.loadSound(soundName)
 	}
 
 	override fun changeVolume(volume: Float)
@@ -114,10 +110,8 @@ class RepeatingSoundEffect : ISoundChannel
 		}
 	}
 
-	override fun parse(zip: ZipFile, xml: Element)
+	override fun parse(xml: Element)
 	{
-		this.zip = zip
-
 		soundName = xml.get("File")
 		type = Type.valueOf(xml.get("Type", "Interval"))
 
@@ -136,36 +130,5 @@ class RepeatingSoundEffect : ISoundChannel
 		nextRepeat = repeat
 
 		timeAccumulator = repeatMin * MathUtils.random()
-	}
-
-	companion object
-	{
-		private val loadedSounds = HashMap<String, Sound?>()
-
-		fun loadSound(zip: ZipFile, path: String): Sound?
-		{
-			if (loadedSounds.containsKey(path))
-			{
-				return loadedSounds.get(path)
-			}
-
-			var file = zip.getHandle("Sounds/$path.mp3")
-			if (!file.exists())
-			{
-				file = zip.getHandle("Sounds/$path.ogg")
-
-				if (!file.exists())
-				{
-					loadedSounds.put(path, null)
-					return null
-				}
-			}
-
-			val sound = Gdx.audio.newSound(file)
-
-			loadedSounds.put(path, sound)
-
-			return sound
-		}
 	}
 }

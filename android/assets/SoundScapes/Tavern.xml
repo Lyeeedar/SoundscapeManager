@@ -1,0 +1,50 @@
+<SoundScape xmlns:meta="Editor">
+	<Layers>
+		<Layer>
+			<Name>BGM</Name>
+			<Sounds>
+				<ShuffledMusic Volume="1">
+					<Track>
+						<File>Korvosa/Dark Tavern Music - Goblin Kings Tavern</File>
+						<Volume>1</Volume>
+					</Track>
+					<Track>
+						<File>Korvosa/Slavic Folk Music - Growling Bear Tavern</File>
+						<Volume>1</Volume>
+					</Track>
+					<Track>
+						<File>Korvosa/Medieval Tavern Music - Brown Fox Inn</File>
+						<Volume>1</Volume>
+					</Track>
+				</ShuffledMusic>
+			</Sounds>
+		</Layer>
+		<Layer>
+			<Name>Ambience</Name>
+			<Sounds>
+				<LoopedMusic>
+					<File>Effects/tavern</File>
+					<Volume>0.7,1</Volume>
+					<SwapTime>2,4</SwapTime>
+				</LoopedMusic>
+			</Sounds>
+		</Layer>
+	</Layers>
+	<Presets>
+		<Preset>
+			<Name>Default</Name>
+			<Layers>
+				<Struct>
+					<Layer>BGM</Layer>
+					<Enabled>true</Enabled>
+					<Volume>1</Volume>
+				</Struct>
+				<Struct>
+					<Layer>Ambience</Layer>
+					<Enabled>true</Enabled>
+					<Volume>1</Volume>
+				</Struct>
+			</Layers>
+		</Preset>
+	</Presets>
+</SoundScape>

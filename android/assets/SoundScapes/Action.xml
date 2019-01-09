@@ -24,6 +24,25 @@
 			</Sounds>
 		</Layer>
 		<Layer>
+			<Name>BGM2</Name>
+			<Sounds>
+				<ShuffledMusic Volume="1">
+					<Track>
+						<File>Korvosa/Darkest Dungeon - Combat Music</File>
+						<Volume>1</Volume>
+					</Track>
+					<Track>
+						<File>Korvosa/Darkest Dungeon OST - Crimson Court Bloodletting (2017) HQ Official</File>
+						<Volume>1</Volume>
+					</Track>
+					<Track>
+						<File>Korvosa/Darkest Dungeon OST - Town in Chaos - Stuart Chatwood (2016) HQ Official</File>
+						<Volume>1</Volume>
+					</Track>
+				</ShuffledMusic>
+			</Sounds>
+		</Layer>
+		<Layer>
 			<Name>Rain</Name>
 			<Sounds>
 				<LoopedMusic>
@@ -80,6 +99,11 @@
 					<Volume>1</Volume>
 				</Struct>
 				<Struct>
+					<Layer>BGM2</Layer>
+					<Enabled>false</Enabled>
+					<Volume>1</Volume>
+				</Struct>
+				<Struct>
 					<Layer>Rain</Layer>
 					<Enabled>false</Enabled>
 					<Volume>1</Volume>
@@ -105,6 +129,11 @@
 					<Volume>1</Volume>
 				</Struct>
 				<Struct>
+					<Layer>BGM2</Layer>
+					<Enabled>false</Enabled>
+					<Volume>1</Volume>
+				</Struct>
+				<Struct>
 					<Layer>Rain</Layer>
 					<Enabled>true</Enabled>
 					<Volume>0.7</Volume>
@@ -127,6 +156,11 @@
 				<Struct>
 					<Layer>BGM</Layer>
 					<Enabled>true</Enabled>
+					<Volume>1</Volume>
+				</Struct>
+				<Struct>
+					<Layer>BGM2</Layer>
+					<Enabled>false</Enabled>
 					<Volume>1</Volume>
 				</Struct>
 				<Struct>
