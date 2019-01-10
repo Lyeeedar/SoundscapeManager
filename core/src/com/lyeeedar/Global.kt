@@ -36,7 +36,7 @@ class Global
 
 		var pause: Boolean = false
 
-		var resolution = Point(800, 600)
+		var resolution = Point(360, 640)
 
 		val stage: Stage
 			get() = (game.screen as AbstractScreen).stage

@@ -15,13 +15,13 @@
     </key>
     <value>
       <string>&lt;?xml version="1.0" encoding="utf-16"?&gt;
-&lt;ArrayOfString xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"&gt;
-  &lt;string&gt;D:\Users\Philip\workspace\MusicManager\android\assets\SoundScapes\Tavern.xml&lt;/string&gt;
+&lt;ArrayOfString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
   &lt;string&gt;D:\Users\Philip\workspace\MusicManager\android\assets\SoundScapes\Action.xml&lt;/string&gt;
+  &lt;string&gt;D:\Users\Philip\workspace\MusicManager\android\assets\Definitions\SoundScape.xmldef&lt;/string&gt;
+  &lt;string&gt;D:\Users\Philip\workspace\MusicManager\android\assets\SoundScapes\Tavern.xml&lt;/string&gt;
   &lt;string&gt;D:\Users\Philip\workspace\MusicManager\android\assets\SoundScapes\Korvosa.xml&lt;/string&gt;
   &lt;string&gt;D:\Users\Philip\workspace\MusicManager\android\assets\SoundScapes\Exploring.xml&lt;/string&gt;
   &lt;string&gt;D:\Users\Philip\workspace\MusicManager\android\assets\SoundScapes\Battle.xml&lt;/string&gt;
-  &lt;string&gt;D:\Users\Philip\workspace\MusicManager\android\assets\Definitions\SoundScape.xmldef&lt;/string&gt;
   &lt;string&gt;D:\Users\Philip\workspace\MusicManager\android\assets\SoundScapes\None.xml&lt;/string&gt;
 &lt;/ArrayOfString&gt;</string>
     </value>

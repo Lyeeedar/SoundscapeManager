@@ -1,7 +1,7 @@
 <SoundScape xmlns:meta="Editor">
 	<Layers>
 		<Layer>
-			<Name>BGM</Name>
+			<Name>BGM (Van Helsing)</Name>
 			<Sounds>
 				<ShuffledMusic Volume="1">
 					<Track>
@@ -24,7 +24,7 @@
 			</Sounds>
 		</Layer>
 		<Layer>
-			<Name>BGM2</Name>
+			<Name>BGM (Darkest Dungeon)</Name>
 			<Sounds>
 				<ShuffledMusic Volume="1">
 					<Track>
@@ -94,12 +94,12 @@
 			<Name>No Rain</Name>
 			<Layers>
 				<Struct>
-					<Layer>BGM</Layer>
+					<Layer>BGM (Van Helsing)</Layer>
 					<Enabled>true</Enabled>
 					<Volume>1</Volume>
 				</Struct>
 				<Struct>
-					<Layer>BGM2</Layer>
+					<Layer>BGM (Darkest Dungeon)</Layer>
 					<Enabled>false</Enabled>
 					<Volume>1</Volume>
 				</Struct>
@@ -124,12 +124,12 @@
 			<Name>Rain</Name>
 			<Layers>
 				<Struct>
-					<Layer>BGM</Layer>
+					<Layer>BGM (Van Helsing)</Layer>
 					<Enabled>true</Enabled>
 					<Volume>1</Volume>
 				</Struct>
 				<Struct>
-					<Layer>BGM2</Layer>
+					<Layer>BGM (Darkest Dungeon)</Layer>
 					<Enabled>false</Enabled>
 					<Volume>1</Volume>
 				</Struct>
@@ -154,12 +154,12 @@
 			<Name>Thunderstorm</Name>
 			<Layers>
 				<Struct>
-					<Layer>BGM</Layer>
+					<Layer>BGM (Van Helsing)</Layer>
 					<Enabled>true</Enabled>
 					<Volume>1</Volume>
 				</Struct>
 				<Struct>
-					<Layer>BGM2</Layer>
+					<Layer>BGM (Darkest Dungeon)</Layer>
 					<Enabled>false</Enabled>
 					<Volume>1</Volume>
 				</Struct>
@@ -181,4 +181,12 @@
 			</Layers>
 		</Preset>
 	</Presets>
+	<OneShots>
+		<OneShot>
+			<Name>Horn</Name>
+			<File>194625__harbour11__trumpet1</File>
+			<Pitch>0.9,1.1</Pitch>
+			<Volume>0.4,0.6</Volume>
+		</OneShot>
+	</OneShots>
 </SoundScape>

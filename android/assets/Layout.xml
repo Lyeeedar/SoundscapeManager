@@ -2,10 +2,10 @@
 <LayoutRoot xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <RootPanel Orientation="Horizontal">
     <LayoutAnchorablePane Id="ProjectViewPanel" DockWidth="200">
-      <LayoutAnchorable AutoHideMinWidth="100" AutoHideMinHeight="100" Title="ProjectView" IsSelected="True" ContentId="ProjectView" LastActivationTimeStamp="08/29/2017 00:01:47" PreviousContainerId="ProjectViewPanel" PreviousContainerIndex="0" />
+      <LayoutAnchorable AutoHideMinWidth="100" AutoHideMinHeight="100" Title="ProjectView" IsSelected="True" ContentId="ProjectView" LastActivationTimeStamp="01/10/2019 09:07:24" PreviousContainerId="ProjectViewPanel" PreviousContainerIndex="0" />
     </LayoutAnchorablePane>
     <LayoutDocumentPane Id="DocumentPanel">
-      <LayoutAnchorable AutoHideMinWidth="100" AutoHideMinHeight="100" Title="StartPage" IsSelected="True" ContentId="StartPage" LastActivationTimeStamp="08/29/2017 00:07:21" PreviousContainerId="DocumentPanel" PreviousContainerIndex="0" />
+      <LayoutAnchorable AutoHideMinWidth="100" AutoHideMinHeight="100" Title="StartPage" IsSelected="True" ContentId="StartPage" LastActivationTimeStamp="01/10/2019 09:07:24" PreviousContainerId="DocumentPanel" PreviousContainerIndex="0" />
     </LayoutDocumentPane>
     <LayoutAnchorablePane Id="ToolPanel" DockWidth="250">
       <LayoutAnchorable AutoHideMinWidth="100" AutoHideMinHeight="100" Title="UndoHistory" IsSelected="True" ContentId="UndoHistory" LastActivationTimeStamp="05/07/2017 18:44:11" PreviousContainerId="ToolPanel" PreviousContainerIndex="0" />
@@ -17,6 +17,6 @@
   <BottomSide />
   <FloatingWindows />
   <Hidden>
-    <LayoutAnchorable AutoHideMinWidth="100" AutoHideMinHeight="100" Title="FocusTool" IsSelected="True" ContentId="FocusTool" LastActivationTimeStamp="08/28/2017 23:58:04" PreviousContainerId="ToolPanel" PreviousContainerIndex="0" />
+    <LayoutAnchorable AutoHideMinWidth="100" AutoHideMinHeight="100" Title="FocusTool" IsSelected="True" ContentId="FocusTool" LastActivationTimeStamp="01/10/2019 09:07:24" PreviousContainerId="ToolPanel" PreviousContainerIndex="0" />
   </Hidden>
 </LayoutRoot>

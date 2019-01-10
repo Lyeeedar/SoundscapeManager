@@ -2,6 +2,7 @@ package com.lyeeedar
 
 import com.badlogic.gdx.utils.Array
 import com.badlogic.gdx.utils.XmlReader
+import com.lyeeedar.Sound.OneShotSoundEffect
 import com.lyeeedar.Util.children
 
 class SoundScape()
@@ -15,10 +16,16 @@ class SoundScape()
 			{
 				layer.changeVolume(volume)
 			}
+
+			for (oneShot in oneShots)
+			{
+				oneShot.changeVolume(volume)
+			}
 		}
 
 	internal val layers: Array<SoundLayer> = Array()
 	val presets: Array<Preset> = Array()
+	val oneShots = Array<OneShotSoundEffect>()
 
 	fun applyPreset(preset: Preset)
 	{
@@ -48,6 +55,7 @@ class SoundScape()
 	fun create()
 	{
 		for (layer in layers) layer.create()
+		for (oneShot in oneShots) oneShot.create()
 	}
 
 	fun play()
@@ -73,6 +81,7 @@ class SoundScape()
 	fun dispose()
 	{
 		for (layer in layers) layer.dispose()
+		for (oneShot in oneShots) oneShot.dispose()
 	}
 
 	fun parse(xml: XmlReader.Element)
@@ -104,6 +113,18 @@ class SoundScape()
 				val volume = el2.getFloat("Volume", 1f)
 
 				preset.layers.add(PresetLayer(layer, enabled, volume))
+			}
+		}
+
+		val oneShotsEl = xml.getChildByName("OneShots")
+		if (oneShotsEl != null)
+		{
+			for (el in oneShotsEl.children())
+			{
+				val oneShot = OneShotSoundEffect()
+				oneShot.parse(el)
+
+				oneShots.add(oneShot)
 			}
 		}
 	}
