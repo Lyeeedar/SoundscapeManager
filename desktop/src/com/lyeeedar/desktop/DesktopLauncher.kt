@@ -2,6 +2,7 @@ package com.lyeeedar.desktop
 
 import com.lyeeedar.Global
 import com.lyeeedar.MainGame
+import com.lyeeedar.Screens.MusicManagerScreen
 import java.awt.MouseInfo
 import java.awt.Robot
 
@@ -14,6 +15,8 @@ object DesktopLauncher
 		Global.game = MainGame()
 		Global.applicationChanger = LwjglApplicationChanger()
 		Global.applicationChanger.createApplication()
+
+		MusicManagerScreen.launchThread()
 
 		// Keep screen alive
 		val hal = Robot()

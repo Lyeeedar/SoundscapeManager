@@ -80,7 +80,7 @@ class AssetManager
 			return sound
 		}
 
-		private val prepackedAtlas = TextureAtlas(Gdx.files.internal("Atlases/SpriteAtlas.atlas"))
+		private val prepackedAtlas = TextureAtlas(Gdx.files.internal("CompressedData/SpriteAtlas.atlas"))
 
 		private val loadedTextureRegions = HashMap<String, TextureRegion?>()
 

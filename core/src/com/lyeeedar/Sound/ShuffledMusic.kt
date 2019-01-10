@@ -3,9 +3,8 @@ package com.lyeeedar
 import com.badlogic.gdx.Gdx
 import com.badlogic.gdx.audio.Music
 import com.badlogic.gdx.utils.Array
-import com.badlogic.gdx.utils.XmlReader
 import com.lyeeedar.Util.Random
-import com.lyeeedar.Util.children
+import com.lyeeedar.Util.XmlData
 import com.lyeeedar.Util.clamp
 import com.lyeeedar.Util.removeRandom
 
@@ -127,7 +126,7 @@ class ShuffledMusic : ISoundChannel
 		}
 	}
 
-	override fun parse(xml: XmlReader.Element)
+	override fun parse(xml: XmlData)
 	{
 		channelVolume = xml.getFloatAttribute("Volume", 1f)
 

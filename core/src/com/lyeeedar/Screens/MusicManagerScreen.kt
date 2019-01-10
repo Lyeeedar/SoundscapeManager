@@ -9,7 +9,6 @@ import com.lyeeedar.SoundScape
 import com.lyeeedar.UI.CollapsibleWidget
 import com.lyeeedar.UI.Seperator
 import com.lyeeedar.UI.addClickListener
-import com.lyeeedar.Util.children
 import com.lyeeedar.Util.getXml
 import ktx.actors.onClick
 import ktx.scene2d.scrollPane
@@ -19,6 +18,13 @@ import ktx.scene2d.textButton
 
 class MusicManagerScreen : AbstractScreen()
 {
+	init
+	{
+		instance = this
+	}
+
+	var exitThread = false
+
 	val allSoundScapes: Array<String> by lazy { loadSoundScapeList() }
 
 	fun loadSoundScapeList() : Array<String>
@@ -51,7 +57,10 @@ class MusicManagerScreen : AbstractScreen()
 				addListener(object : ChangeListener() {
 					override fun changed(event: ChangeEvent?, actor: Actor?)
 					{
-						currentSoundScape?.volume = value
+						synchronized(this@MusicManagerScreen)
+						{
+							currentSoundScape?.volume = value
+						}
 					}
 				})
 			}
@@ -65,9 +74,12 @@ class MusicManagerScreen : AbstractScreen()
 					{
 						 textButton(soundScape, "default", Global.skin) { cell -> cell.width(150f).pad(15f)
 							onClick { inputEvent, kTextButton ->
-								queuedSoundScape = loadSoundScape(soundScape)
-								queuedSoundScape!!.volume = currentSoundScape?.volume ?: s.value
-								fillSoundTable(queuedSoundScape!!, soundScape)
+								synchronized(this@MusicManagerScreen)
+								{
+									queuedSoundScape = loadSoundScape(soundScape)
+									queuedSoundScape!!.volume = currentSoundScape?.volume ?: s.value
+									fillSoundTable(queuedSoundScape!!, soundScape)
+								}
 							}
 						 }
 					}
@@ -105,7 +117,10 @@ class MusicManagerScreen : AbstractScreen()
 		{
 			val button = TextButton(preset.name, Global.skin)
 			button.onClick { inputEvent, textButton ->
-				soundScape.applyPreset(preset)
+				synchronized(this@MusicManagerScreen)
+				{
+					soundScape.applyPreset(preset)
+				}
 				fillSoundTable(soundScape, name)
 			}
 			presetTable.add(button).width(150f).pad(5f)
@@ -130,15 +145,18 @@ class MusicManagerScreen : AbstractScreen()
 			check.addListener(object : ChangeListener() {
 				override fun changed(event: ChangeEvent?, actor: Actor?)
 				{
-					layer.enabled = check.isChecked
+					synchronized(this@MusicManagerScreen)
+					{
+						layer.enabled = check.isChecked
 
-					if (layer.enabled)
-					{
-						layer.play()
-					}
-					else
-					{
-						layer.stop()
+						if (layer.enabled)
+						{
+							layer.play()
+						}
+						else
+						{
+							layer.stop()
+						}
 					}
 				}
 			})
@@ -150,8 +168,11 @@ class MusicManagerScreen : AbstractScreen()
 			slider.addListener(object : ChangeListener() {
 				override fun changed(event: ChangeEvent?, actor: Actor?)
 				{
-					layer.volume = slider.value
-					layer.changeVolume(1f)
+					synchronized(this@MusicManagerScreen)
+					{
+						layer.volume = slider.value
+						layer.changeVolume(1f)
+					}
 				}
 			})
 			entry.add(slider).width(Value.percentWidth(0.4f, soundScapeTable)).growX()
@@ -200,32 +221,87 @@ class MusicManagerScreen : AbstractScreen()
 
 	override fun doRender(delta: Float)
 	{
-		currentSoundScape?.update(delta)
 
-		if (queuedSoundScape != null)
+
+
+	}
+
+	var hasThread = false
+	fun launchThread()
+	{
+		if (hasThread) throw RuntimeException("Already has thread!")
+		hasThread = true
+
+		object : Thread()
 		{
-			if (currentSoundScape?.complete() ?: true)
+			private var startTime: Long = 0
+			override fun run()
 			{
-				currentSoundScape?.dispose()
+				while (true)
+				{
+					val delta = (System.currentTimeMillis() - startTime).toFloat() / 1000.0f
+					startTime = System.currentTimeMillis()
 
-				currentSoundScape = queuedSoundScape
-				queuedSoundScape = null
+					synchronized(this@MusicManagerScreen)
+					{
+						if (exitThread)
+						{
+							return
+						}
 
-				currentSoundScape!!.create()
-				currentSoundScape!!.play()
+						if (queuedSoundScape != null)
+						{
+							if (currentSoundScape?.complete() != false)
+							{
+								currentSoundScape?.dispose()
+
+								currentSoundScape = queuedSoundScape
+								queuedSoundScape = null
+
+								currentSoundScape!!.create()
+								currentSoundScape!!.play()
+							}
+						}
+
+						currentSoundScape?.update(delta)
+					}
+				}
 			}
-		}
+		}.start()
 	}
 
 	fun loadSoundScape(name: String): SoundScape
 	{
 		val xml = getXml("SoundScapes/$name")
 
-		val soundScape = SoundScape()
+		val soundScape = SoundScape(name)
 		soundScape.parse(xml)
 
 		if (soundScape.presets.size > 0) soundScape.applyPreset(soundScape.presets.first())
 
 		return soundScape
+	}
+
+	companion object
+	{
+		var instance: MusicManagerScreen? = null
+
+		fun launchThread()
+		{
+			object : Thread()
+			{
+				override fun run()
+				{
+					while (true)
+					{
+						if (instance != null)
+						{
+							instance!!.launchThread()
+							break
+						}
+					}
+				}
+			}.start()
+		}
 	}
 }

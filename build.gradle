@@ -28,11 +28,13 @@ allprojects {
         kotlinVersion = '1.2.40'
         ktxVersion = '1.9.6-b1'
         squidlibVersion = '3.0.0-b9'
+        kryoVersion = '4.0.2'
     }
 
     repositories {
         mavenLocal()
         mavenCentral()
+        google()
         maven { url "https://oss.sonatype.org/content/repositories/snapshots/" }
         maven { url "https://oss.sonatype.org/content/repositories/releases/" }
         maven { url "http://dl.bintray.com/kotlin/kotlin-eap-1.1" }
@@ -67,6 +69,7 @@ project(":core") {
         compile "com.github.czyzby:ktx-collections:$ktxVersion"
         compile "com.github.czyzby:ktx-actors:$ktxVersion"
         compile "com.squidpony:squidlib-util:$squidlibVersion"
+        compile "com.esotericsoftware:kryo:$kryoVersion"
 
         compile "org.jetbrains.kotlinx:kotlinx-coroutines-core:0.12"
     }
@@ -88,6 +91,7 @@ project(":android") {
         natives "com.badlogicgames.gdx:gdx-freetype-platform:$gdxVersion:natives-armeabi"
         natives "com.badlogicgames.gdx:gdx-freetype-platform:$gdxVersion:natives-armeabi-v7a"
         natives "com.badlogicgames.gdx:gdx-freetype-platform:$gdxVersion:natives-x86"
+        compile "com.android.support:support-v4:24.1.1"
     }
 }
 

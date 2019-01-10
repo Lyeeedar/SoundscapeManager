@@ -1,6 +1,6 @@
 package com.lyeeedar
 
-import com.badlogic.gdx.utils.XmlReader
+import com.lyeeedar.Util.XmlData
 
 interface ISoundChannel
 {
@@ -16,5 +16,5 @@ interface ISoundChannel
 
 	fun dispose()
 
-	fun parse(xml: XmlReader.Element)
+	fun parse(xml: XmlData)
 }

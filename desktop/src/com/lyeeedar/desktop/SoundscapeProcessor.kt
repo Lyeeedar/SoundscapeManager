@@ -2,17 +2,50 @@ package com.lyeeedar.desktop
 
 import com.badlogic.gdx.Gdx
 import com.badlogic.gdx.utils.ObjectSet
-import com.lyeeedar.Util.getXml
+import com.lyeeedar.Util.getRawXml
 import java.io.File
-import java.io.FileOutputStream
-import java.util.zip.ZipEntry
-import java.util.zip.ZipOutputStream
 
 class SoundscapeProcessor
 {
+	val audioFiles = ObjectSet<String>()
 	init
 	{
-		findFilesRecursive(File("SoundScapes"))
+		// clear data
+		val soundsFolder = File("Sounds")
+		if (soundsFolder.exists())
+		{
+			for (file in soundsFolder.list())
+			{
+				val deleted = File("Sounds/$file").deleteRecursively()
+				if (!deleted)
+				{
+					error("Failed to delete file $file!")
+				}
+			}
+		}
+
+		val musicFolder = File("Music")
+		if (musicFolder.exists())
+		{
+			for (file in musicFolder.list())
+			{
+				val deleted = File("Music/$file").deleteRecursively()
+				if (!deleted)
+				{
+					error("Failed to delete file $file!")
+				}
+			}
+		}
+
+		findFilesRecursive(File("../assetsraw/SoundScapes"))
+
+		for (path in audioFiles)
+		{
+			val file = File("../assetsraw/$path")
+			file.copyTo(File(path))
+
+			System.out.println("Copied $path")
+		}
 	}
 
 	private fun findFilesRecursive(dir: File)
@@ -34,36 +67,20 @@ class SoundscapeProcessor
 
 	fun processFile(file: File)
 	{
-		val xml = getXml(file.path)
+		val xml = getRawXml(file.path)
 
 		val occurances = xml.getChildrenByNameRecursively("File")
 
-		val zipFile = File("SoundScapes/" + file.nameWithoutExtension + ".zip")
-		val out = ZipOutputStream(FileOutputStream(zipFile))
-
-		val storedFiles = ObjectSet<String>()
-		fun tryWriteFile(path: String, overrideEntryName: String? = null): Boolean
+		fun tryWriteFile(path: String): Boolean
 		{
-			if (storedFiles.contains(path)) return true
+			if (audioFiles.contains(path)) return true
 
-			if (!Gdx.files.local(path).exists()) return false
+			if (!Gdx.files.local("../assetsraw/$path").exists()) return false
 
-			storedFiles.add(path)
-
-			val dataBytes = Gdx.files.local(path).file().readBytes()
-
-			val name = overrideEntryName ?: path
-
-			val e = ZipEntry(name)
-			out.putNextEntry(e)
-
-			out.write(dataBytes, 0, dataBytes.size)
-			out.closeEntry()
+			audioFiles.add(path)
 
 			return true
 		}
-
-		tryWriteFile("SoundScapes/" + file.nameWithoutExtension + ".xml", "SoundScape.xml")
 
 		for (occurance in occurances)
 		{
@@ -72,7 +89,5 @@ class SoundscapeProcessor
 
 			if (!found) throw Exception("Invalid music or sound '" + occurance.text + "' in file '" + file.path)
 		}
-
-		out.close()
 	}
 }

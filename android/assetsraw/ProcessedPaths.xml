@@ -1,0 +1,10 @@
+<Paths>
+	<Path>Sounds/SoundMap.xml</Path>
+	<Path>SoundScapes/Action.xml</Path>
+	<Path>SoundScapes/Battle.xml</Path>
+	<Path>SoundScapes/Exploring.xml</Path>
+	<Path>SoundScapes/Korvosa.xml</Path>
+	<Path>SoundScapes/None.xml</Path>
+	<Path>SoundScapes/SoundScapeList.xml</Path>
+	<Path>SoundScapes/Tavern.xml</Path>
+</Paths>

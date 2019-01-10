@@ -2,12 +2,9 @@ package com.lyeeedar
 
 import com.badlogic.gdx.Gdx
 import com.badlogic.gdx.audio.Music
-import com.badlogic.gdx.utils.XmlReader
-import com.lyeeedar.Util.AssetManager
 import com.lyeeedar.Util.Random
+import com.lyeeedar.Util.XmlData
 import com.lyeeedar.Util.clamp
-import com.lyeeedar.Util.getHandle
-import java.util.zip.ZipFile
 
 class LoopedMusic : ISoundChannel
 {
@@ -141,18 +138,18 @@ class LoopedMusic : ISoundChannel
 		}
 	}
 
-	override fun parse(xml: XmlReader.Element)
+	override fun parse(xml: XmlData)
 	{
 		name = xml.get("File")
 
-		val volumeStr = xml.get("Volume", "1,1").split(",")
+		val volumeStr = xml.get("Volume", "1,1")!!.split(",")
 		minVolume = volumeStr[0].toFloat()
 		maxVolume = volumeStr[1].toFloat()
 
 		targetVolume = minVolume + Random.random() * (maxVolume - minVolume)
 		lastVolume = targetVolume
 
-		val swapStr = xml.get("SwapTime", "1,1").split(",")
+		val swapStr = xml.get("SwapTime", "1,1")!!.split(",")
 		minSwapTime = swapStr[0].toFloat()
 		maxSwapTime = swapStr[1].toFloat()
 	}

@@ -2,9 +2,9 @@ package com.lyeeedar
 
 import com.badlogic.gdx.audio.Sound
 import com.badlogic.gdx.math.MathUtils
-import com.badlogic.gdx.utils.XmlReader.Element
 import com.lyeeedar.Util.AssetManager
 import com.lyeeedar.Util.Random
+import com.lyeeedar.Util.XmlData
 
 
 class RepeatingSoundEffect : ISoundChannel
@@ -46,7 +46,7 @@ class RepeatingSoundEffect : ISoundChannel
 
 	override fun create()
 	{
-		sound = AssetManager.loadSound(soundName)
+		sound = AssetManager.loadSound(soundName)!!
 	}
 
 	override fun changeVolume(volume: Float)
@@ -68,6 +68,11 @@ class RepeatingSoundEffect : ISoundChannel
 
 	override fun update(delta: Float)
 	{
+		if (sound == null)
+		{
+			create()
+		}
+
 		if (type == Type.Continuous)
 		{
 			if (!isPlaying)
@@ -110,10 +115,10 @@ class RepeatingSoundEffect : ISoundChannel
 		}
 	}
 
-	override fun parse(xml: Element)
+	override fun parse(xml: XmlData)
 	{
 		soundName = xml.get("File")
-		type = Type.valueOf(xml.get("Type", "Interval"))
+		type = Type.valueOf(xml.get("Type", "Interval")!!)
 
 		val repeatStr = xml.get("Repeat").split(",")
 		repeatMin = repeatStr[0].toFloat()

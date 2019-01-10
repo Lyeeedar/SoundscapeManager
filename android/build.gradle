@@ -19,7 +19,7 @@ android {
     }
     defaultConfig {
         applicationId "com.lyeeedar.MusicManager"
-        minSdkVersion 9
+        minSdkVersion 16
         targetSdkVersion 24
     }
 }

@@ -1,10 +1,10 @@
 package com.lyeeedar.Sound
 
 import com.badlogic.gdx.audio.Sound
-import com.badlogic.gdx.utils.XmlReader
 import com.lyeeedar.ISoundChannel
 import com.lyeeedar.Util.AssetManager
 import com.lyeeedar.Util.Random
+import com.lyeeedar.Util.XmlData
 
 class OneShotSoundEffect : ISoundChannel
 {
@@ -59,7 +59,7 @@ class OneShotSoundEffect : ISoundChannel
 
 	}
 
-	override fun parse(xml: XmlReader.Element)
+	override fun parse(xml: XmlData)
 	{
 		name = xml.get("Name")
 		soundName = xml.get("File")

@@ -1,8 +1,7 @@
 package com.lyeeedar
 
 import com.badlogic.gdx.utils.Array
-import com.badlogic.gdx.utils.XmlReader
-import com.lyeeedar.Util.children
+import com.lyeeedar.Util.XmlData
 
 class SoundLayer : ISoundChannel
 {
@@ -72,11 +71,11 @@ class SoundLayer : ISoundChannel
 		disposed = true
 	}
 
-	override fun parse(xml: XmlReader.Element)
+	override fun parse(xml: XmlData)
 	{
 		name = xml.get("Name")
 
-		val soundsEl = xml.getChildByName("Sounds")
+		val soundsEl = xml.getChildByName("Sounds")!!
 		for (el in soundsEl.children())
 		{
 			val action = when (el.name.toUpperCase())
