@@ -5,7 +5,6 @@ import com.badlogic.gdx.audio.Music
 import com.badlogic.gdx.utils.Array
 import com.lyeeedar.Util.Random
 import com.lyeeedar.Util.XmlData
-import com.lyeeedar.Util.clamp
 import com.lyeeedar.Util.removeRandom
 
 class ShuffledMusic : ISoundChannel
@@ -19,14 +18,7 @@ class ShuffledMusic : ISoundChannel
 
 	var channelVolume: Float = 1f
 
-	var fadeTime: Float = 0f
-	var fadePoint: Float = 0f
-	var isFading: Boolean = false
-
 	var canPlay = false
-
-	val isFadeComplete: Boolean
-		get() = fadePoint >= fadeTime
 
 	var parentVolume: Float = 1f
 
@@ -38,9 +30,9 @@ class ShuffledMusic : ISoundChannel
 	{
 		parentVolume = volume
 
-		if (currentMusic != null && !isFading)
+		if (currentMusic != null)
 		{
-			currentMusic!!.volume = volume * channelVolume * parentVolume
+			currentMusic!!.volume = getVolume(volume * channelVolume * parentVolume)
 		}
 	}
 
@@ -67,7 +59,7 @@ class ShuffledMusic : ISoundChannel
 		currentMusic!!.setOnCompletionListener { nextTrack() }
 
 		currentMusic!!.play()
-		currentMusic!!.volume = volume * channelVolume * parentVolume
+		currentMusic!!.volume = getVolume(volume * channelVolume * parentVolume)
 	}
 
 	fun shuffle()
@@ -75,7 +67,7 @@ class ShuffledMusic : ISoundChannel
 		shuffleIndices.clear()
 
 		val rawIndices = Array<Int>()
-		for (i in 0..tracks.size-1)
+		for (i in 0 until tracks.size)
 		{
 			rawIndices.add(i)
 		}
@@ -88,16 +80,7 @@ class ShuffledMusic : ISoundChannel
 
 	override fun update(delta: Float)
 	{
-		if (isFading)
-		{
-			fadePoint += delta
 
-			val alpha = (fadePoint / fadeTime).clamp(0f, 1f)
-
-			currentMusic!!.volume = volume * (1f - alpha) * channelVolume * parentVolume
-
-			if (isFadeComplete) isFading = false
-		}
 	}
 
 	override fun play()
@@ -109,12 +92,12 @@ class ShuffledMusic : ISoundChannel
 	override fun stop()
 	{
 		canPlay = false
-		fadePoint = 0f
-		fadeTime = 0.25f
-		isFading = true
+		currentMusic?.stop()
+		currentMusic?.dispose()
+		currentMusic = null
 	}
 
-	override fun isComplete(): Boolean = isFadeComplete
+	override fun isComplete(): Boolean = true
 
 	override fun dispose()
 	{

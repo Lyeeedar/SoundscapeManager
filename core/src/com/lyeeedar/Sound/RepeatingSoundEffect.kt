@@ -79,7 +79,7 @@ class RepeatingSoundEffect : ISoundChannel
 			{
 				if (canPlay)
 				{
-					soundID = sound!!.loop(volume * parentVolume)
+					soundID = sound!!.loop(getVolume(volume * parentVolume))
 					isPlaying = true
 				}
 			}
@@ -92,7 +92,7 @@ class RepeatingSoundEffect : ISoundChannel
 			{
 				if (canPlay)
 				{
-					soundID = sound!!.play(volume * parentVolume, pitch, 0f)
+					soundID = sound!!.play(getVolume(volume * parentVolume), pitch, 0f)
 					isPlaying = true
 				}
 

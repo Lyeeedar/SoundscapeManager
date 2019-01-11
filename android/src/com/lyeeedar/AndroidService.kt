@@ -28,20 +28,12 @@ class AndroidService : Service()
 		{
 			override fun run()
 			{
-				var last = System.currentTimeMillis()
 				while (true)
 				{
 					if (exitThread) return
 
-					val current = System.currentTimeMillis()
-					val diff = current - last
-
-					if (diff > 2000)
-					{
-						updateNotification()
-
-						last = current
-					}
+					updateNotification()
+					sleep(5000)
 				}
 			}
 		}.start()

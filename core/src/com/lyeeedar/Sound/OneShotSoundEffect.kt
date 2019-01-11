@@ -5,6 +5,7 @@ import com.lyeeedar.ISoundChannel
 import com.lyeeedar.Util.AssetManager
 import com.lyeeedar.Util.Random
 import com.lyeeedar.Util.XmlData
+import com.lyeeedar.getVolume
 
 class OneShotSoundEffect : ISoundChannel
 {
@@ -39,7 +40,7 @@ class OneShotSoundEffect : ISoundChannel
 
 	override fun play()
 	{
-		soundID = sound!!.play(volume * parentVolume, pitch, 0f)
+		soundID = sound!!.play(getVolume(volume * parentVolume), pitch, 0f)
 	}
 
 	override fun isComplete(): Boolean = true

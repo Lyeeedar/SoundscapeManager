@@ -46,7 +46,7 @@ class LoopedMusic : ISoundChannel
 
 		if (!isFading && music != null)
 		{
-			music!!.volume = parentVolume * this.currentVolume
+			music!!.volume = getVolume(parentVolume * this.currentVolume)
 		}
 	}
 
@@ -69,12 +69,21 @@ class LoopedMusic : ISoundChannel
 		music = null
 	}
 
+	var lastSetVolume: Float = -1f
 	override fun update(delta: Float)
 	{
 		if (music == null) return
 
 		swapPoint += delta
-		music!!.volume = currentVolume * parentVolume
+
+		val requestedVolume = getVolume(currentVolume * parentVolume)
+
+		if (lastSetVolume != requestedVolume)
+		{
+			lastSetVolume = requestedVolume
+
+			music!!.volume = requestedVolume
+		}
 
 		if (swapPoint >= swapTime)
 		{
@@ -93,11 +102,12 @@ class LoopedMusic : ISoundChannel
 			if (fadeIn)
 			{
 				if (!music!!.isPlaying) music!!.play()
-				music!!.volume = currentVolume * alpha * parentVolume
+
+				music!!.volume = getVolume(currentVolume * alpha * parentVolume)
 			}
 			else
 			{
-				music!!.volume = currentVolume * (1f - alpha) * parentVolume
+				music!!.volume = getVolume(currentVolume * (1f - alpha) * parentVolume)
 			}
 
 			if (isFadeComplete)
@@ -106,7 +116,7 @@ class LoopedMusic : ISoundChannel
 
 				if (fadeIn)
 				{
-					music!!.volume = currentVolume * parentVolume
+					music!!.volume = getVolume(currentVolume * parentVolume)
 				}
 				else
 				{

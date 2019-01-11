@@ -2,6 +2,15 @@ package com.lyeeedar
 
 import com.lyeeedar.Util.XmlData
 
+const val MAX_VOLUME = 50.0
+
+fun getVolume(volume: Float): Float
+{
+	val soundVolume = (volume * MAX_VOLUME).toInt()
+	val finalvolume = 1.0f - (Math.log(MAX_VOLUME - soundVolume) / Math.log(MAX_VOLUME)).toFloat()
+	return finalvolume
+}
+
 interface ISoundChannel
 {
 	fun create()

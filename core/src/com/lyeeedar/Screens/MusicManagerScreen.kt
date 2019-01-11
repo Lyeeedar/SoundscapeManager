@@ -16,6 +16,8 @@ import ktx.scene2d.slider
 import ktx.scene2d.table
 import ktx.scene2d.textButton
 
+const val UPDATE_SPEED = 100L
+
 class MusicManagerScreen : AbstractScreen()
 {
 	init
@@ -171,7 +173,7 @@ class MusicManagerScreen : AbstractScreen()
 					synchronized(this@MusicManagerScreen)
 					{
 						layer.volume = slider.value
-						layer.changeVolume(1f)
+						layer.changeVolume(soundScape.volume)
 					}
 				}
 			})
@@ -234,14 +236,10 @@ class MusicManagerScreen : AbstractScreen()
 
 		object : Thread()
 		{
-			private var startTime: Long = 0
 			override fun run()
 			{
 				while (true)
 				{
-					val delta = (System.currentTimeMillis() - startTime).toFloat() / 1000.0f
-					startTime = System.currentTimeMillis()
-
 					synchronized(this@MusicManagerScreen)
 					{
 						if (exitThread)
@@ -263,8 +261,10 @@ class MusicManagerScreen : AbstractScreen()
 							}
 						}
 
-						currentSoundScape?.update(delta)
+						currentSoundScape?.update(UPDATE_SPEED.toFloat() / 1000.0f)
 					}
+
+					sleep(UPDATE_SPEED)
 				}
 			}
 		}.start()
