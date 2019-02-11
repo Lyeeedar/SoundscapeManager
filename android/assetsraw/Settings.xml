@@ -6,7 +6,7 @@
     </key>
     <value>
       <string>&lt;?xml version="1.0" encoding="utf-16"?&gt;
-&lt;string&gt;D:\Users\Philip\workspace\MusicManager\android\assets\ProjectRoot.xml&lt;/string&gt;</string>
+&lt;string&gt;D:\Users\Philip\workspace\MusicManager\android\assetsraw\ProjectRoot.xml&lt;/string&gt;</string>
     </value>
   </item>
   <item>
@@ -16,13 +16,14 @@
     <value>
       <string>&lt;?xml version="1.0" encoding="utf-16"?&gt;
 &lt;ArrayOfString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
-  &lt;string&gt;D:\Users\Philip\workspace\MusicManager\android\assets\SoundScapes\Action.xml&lt;/string&gt;
-  &lt;string&gt;D:\Users\Philip\workspace\MusicManager\android\assets\Definitions\SoundScape.xmldef&lt;/string&gt;
-  &lt;string&gt;D:\Users\Philip\workspace\MusicManager\android\assets\SoundScapes\Tavern.xml&lt;/string&gt;
-  &lt;string&gt;D:\Users\Philip\workspace\MusicManager\android\assets\SoundScapes\Korvosa.xml&lt;/string&gt;
-  &lt;string&gt;D:\Users\Philip\workspace\MusicManager\android\assets\SoundScapes\Exploring.xml&lt;/string&gt;
-  &lt;string&gt;D:\Users\Philip\workspace\MusicManager\android\assets\SoundScapes\Battle.xml&lt;/string&gt;
-  &lt;string&gt;D:\Users\Philip\workspace\MusicManager\android\assets\SoundScapes\None.xml&lt;/string&gt;
+  &lt;string&gt;D:\Users\Philip\workspace\MusicManager\android\assetsraw\SoundScapes\Action.xml&lt;/string&gt;
+  &lt;string&gt;D:\Users\Philip\workspace\MusicManager\android\assetsraw\SoundScapes\Fire.xml&lt;/string&gt;
+  &lt;string&gt;D:\Users\Philip\workspace\MusicManager\android\assetsraw\SoundScapes\Prison.xml&lt;/string&gt;
+  &lt;string&gt;D:\Users\Philip\workspace\MusicManager\android\assetsraw\SoundScapes\Piper.xml&lt;/string&gt;
+  &lt;string&gt;D:\Users\Philip\workspace\MusicManager\android\assetsraw\SoundScapes\Lepidstadt.xml&lt;/string&gt;
+  &lt;string&gt;D:\Users\Philip\workspace\MusicManager\android\assetsraw\SoundScapes\Ravengro.xml&lt;/string&gt;
+  &lt;string&gt;D:\Users\Philip\workspace\MusicManager\android\assetsraw\SoundScapes\Exploring.xml&lt;/string&gt;
+  &lt;string&gt;D:\Users\Philip\workspace\MusicManager\android\assetsraw\Definitions\SoundScape.xmldef&lt;/string&gt;
 &lt;/ArrayOfString&gt;</string>
     </value>
   </item>

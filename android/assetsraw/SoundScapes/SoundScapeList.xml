@@ -1,8 +1,11 @@
 <SoundScapes>
     <SoundScape>Action</SoundScape>
-    <SoundScape>Battle</SoundScape>
     <SoundScape>Exploring</SoundScape>
-    <SoundScape>Korvosa</SoundScape>
+    <SoundScape>Lepidstadt</SoundScape>
+    <SoundScape>Ravengro</SoundScape>
     <SoundScape>None</SoundScape>
     <SoundScape>Tavern</SoundScape>
+    <SoundScape>Fire</SoundScape>
+    <SoundScape>Prison</SoundScape>
+    <SoundScape>Piper</SoundScape>
 </SoundScapes>

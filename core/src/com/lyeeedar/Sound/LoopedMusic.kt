@@ -22,29 +22,24 @@ class LoopedMusic : ISoundChannel
 	var lastVolume: Float = 1f
 
 	val currentVolume: Float
-		get() = lastVolume + (swapPoint / swapTime).clamp(0f, 1f) * (targetVolume - lastVolume)
-
-	var fadeTime: Float = 0f
-	var fadePoint: Float = 0f
-	var isFading: Boolean = false
-	var fadeIn: Boolean = false
-
-	val isFadeComplete: Boolean
-		get() = music == null || fadePoint >= fadeTime
+		get() = if (swapTime > 0f) lastVolume + (swapPoint / swapTime).clamp(0f, 1f) * (targetVolume - lastVolume) else lastVolume
 
 	var parentVolume: Float = 1f
 
 	override fun create()
 	{
-		music = Gdx.audio.newMusic (Gdx.files.internal("Music/$name.ogg"))
-		music!!.isLooping = true
+		if (music == null)
+		{
+			music = Gdx.audio.newMusic(Gdx.files.internal("Music/$name.ogg"))
+			music!!.isLooping = true
+		}
 	}
 
 	override fun changeVolume(volume: Float)
 	{
 		parentVolume = volume
 
-		if (!isFading && music != null)
+		if (music != null)
 		{
 			music!!.volume = getVolume(parentVolume * this.currentVolume)
 		}
@@ -52,15 +47,19 @@ class LoopedMusic : ISoundChannel
 
 	override fun play()
 	{
-		fadeIn(0.25f)
+		create()
+
+		music!!.play()
+		music!!.volume = getVolume(parentVolume * this.currentVolume)
+		music!!.isLooping = true
 	}
 
 	override fun stop()
 	{
-		fadeOut(0.25f)
+		music!!.stop()
 	}
 
-	override fun isComplete(): Boolean = isFadeComplete
+	override fun isComplete(): Boolean = true
 
 	override fun dispose()
 	{
@@ -91,60 +90,6 @@ class LoopedMusic : ISoundChannel
 			targetVolume = minVolume + Random.random() * (maxVolume - minVolume)
 			swapTime = minSwapTime + Random.random() * (maxSwapTime - minSwapTime)
 			swapPoint = 0f
-		}
-
-		if (isFading)
-		{
-			fadePoint += delta
-
-			val alpha = (fadePoint / fadeTime).clamp(0f, 1f)
-
-			if (fadeIn)
-			{
-				if (!music!!.isPlaying) music!!.play()
-
-				music!!.volume = getVolume(currentVolume * alpha * parentVolume)
-			}
-			else
-			{
-				music!!.volume = getVolume(currentVolume * (1f - alpha) * parentVolume)
-			}
-
-			if (isFadeComplete)
-			{
-				isFading = false
-
-				if (fadeIn)
-				{
-					music!!.volume = getVolume(currentVolume * parentVolume)
-				}
-				else
-				{
-					music!!.volume = 0f
-				}
-			}
-		}
-	}
-
-	fun fadeIn(duration: Float)
-	{
-		if (!isFading || !fadeIn)
-		{
-			fadeIn = true
-			fadePoint = 0f
-			fadeTime = duration
-			isFading = true
-		}
-	}
-
-	fun fadeOut(duration: Float)
-	{
-		if (!isFading || fadeIn)
-		{
-			fadeIn = false
-			fadePoint = 0f
-			fadeTime = duration
-			isFading = true
 		}
 	}
 

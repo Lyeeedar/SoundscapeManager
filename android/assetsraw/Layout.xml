@@ -2,14 +2,14 @@
 <LayoutRoot xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <RootPanel Orientation="Horizontal">
     <LayoutAnchorablePane Id="ProjectViewPanel" DockWidth="200">
-      <LayoutAnchorable AutoHideMinWidth="100" AutoHideMinHeight="100" Title="Project View" IsSelected="True" ContentId="Project View" LastActivationTimeStamp="01/10/2019 09:08:25" PreviousContainerId="ProjectViewPanel" PreviousContainerIndex="0" />
+      <LayoutAnchorable AutoHideMinWidth="100" AutoHideMinHeight="100" Title="Project View" IsSelected="True" ContentId="Project View" LastActivationTimeStamp="01/20/2019 14:31:55" PreviousContainerId="ProjectViewPanel" PreviousContainerIndex="0" />
     </LayoutAnchorablePane>
     <LayoutDocumentPane Id="DocumentPanel">
-      <LayoutAnchorable AutoHideMinWidth="100" AutoHideMinHeight="100" Title="Start Page" IsSelected="True" ContentId="Start Page" LastActivationTimeStamp="01/10/2019 09:34:05" PreviousContainerId="DocumentPanel" PreviousContainerIndex="0" />
+      <LayoutAnchorable AutoHideMinWidth="100" AutoHideMinHeight="100" Title="Start Page" IsSelected="True" ContentId="Start Page" LastActivationTimeStamp="01/21/2019 02:58:23" PreviousContainerId="DocumentPanel" PreviousContainerIndex="0" />
     </LayoutDocumentPane>
     <LayoutAnchorablePane Id="ToolPanel" DockWidth="250">
       <LayoutAnchorable AutoHideMinWidth="100" AutoHideMinHeight="100" Title="Undo History" ContentId="Undo History" PreviousContainerId="ToolPanel" PreviousContainerIndex="0" />
-      <LayoutAnchorable AutoHideMinWidth="100" AutoHideMinHeight="100" Title="Focus Tool" IsSelected="True" ContentId="Focus Tool" LastActivationTimeStamp="01/10/2019 09:07:33" PreviousContainerId="ToolPanel" PreviousContainerIndex="0" />
+      <LayoutAnchorable AutoHideMinWidth="100" AutoHideMinHeight="100" Title="Focus Tool" IsSelected="True" ContentId="Focus Tool" LastActivationTimeStamp="01/20/2019 14:31:27" PreviousContainerId="ToolPanel" PreviousContainerIndex="0" />
     </LayoutAnchorablePane>
   </RootPanel>
   <TopSide />
@@ -18,6 +18,6 @@
   <BottomSide />
   <FloatingWindows />
   <Hidden>
-    <LayoutAnchorable AutoHideMinWidth="100" AutoHideMinHeight="100" Title="Template Creator" IsSelected="True" ContentId="Template Creator" LastActivationTimeStamp="01/10/2019 09:07:33" PreviousContainerId="ToolPanel" PreviousContainerIndex="0" />
+    <LayoutAnchorable AutoHideMinWidth="100" AutoHideMinHeight="100" Title="Template Creator" IsSelected="True" ContentId="Template Creator" LastActivationTimeStamp="01/20/2019 14:31:27" PreviousContainerId="ToolPanel" PreviousContainerIndex="0" />
   </Hidden>
 </LayoutRoot>

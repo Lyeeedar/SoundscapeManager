@@ -20,27 +20,40 @@ class AndroidService : Service()
 		return null
 	}
 
-	override fun onStartCommand(intent: Intent, flags: Int, startId: Int): Int
+	override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int
 	{
-		MusicManagerScreen.launchThread()
-
-		object : Thread()
+		if (intent != null)
 		{
-			override fun run()
+			MusicManagerScreen.launchThread()
+
+			if (!hasThread)
 			{
-				while (true)
+				hasThread = true
+
+				object : Thread()
 				{
-					if (exitThread) return
+					override fun run()
+					{
+						while (true)
+						{
+							if (exitThread)
+							{
+								exitThread = false
+								hasThread = false
+								return
+							}
 
-					updateNotification()
-					sleep(5000)
-				}
+							updateNotification()
+							sleep(5000)
+						}
+					}
+				}.start()
 			}
-		}.start()
 
-		updateNotification()
+			updateNotification()
+		}
 
-		return Service.START_STICKY
+		return Service.START_REDELIVER_INTENT
 	}
 
 	private fun updateNotification()
@@ -60,7 +73,7 @@ class AndroidService : Service()
 		mNotificationManager.notify(NOTIFICATION_ID, mBuilder.build())
 	}
 
-	override fun onTaskRemoved(rootIntent: Intent)
+	override fun onTaskRemoved(rootIntent: Intent?)
 	{
 		val mNotificationManager = getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
 		mNotificationManager.cancel(NOTIFICATION_ID)
@@ -71,6 +84,7 @@ class AndroidService : Service()
 		stopSelf()
 	}
 
+	private var hasThread = false
 	private var exitThread = false
 	private val NOTIFICATION_ID = 1
 }

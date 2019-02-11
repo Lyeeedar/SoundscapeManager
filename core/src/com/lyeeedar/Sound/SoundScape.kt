@@ -104,14 +104,17 @@ class SoundScape(val name: String)
 			val preset = Preset(name)
 			presets.add(preset)
 
-			val presetLayersEl = el1.getChildByName("Layers")!!
-			for (el2 in presetLayersEl.children())
+			val presetLayersEl = el1.getChildByName("Layers")
+			if (presetLayersEl != null)
 			{
-				val layer = el2.get("Layer")
-				val enabled = el2.getBoolean("Enabled", true)
-				val volume = el2.getFloat("Volume", 1f)
+				for (el2 in presetLayersEl.children())
+				{
+					val layer = el2.get("Layer")
+					val enabled = el2.getBoolean("Enabled", true)
+					val volume = el2.getFloat("Volume", 1f)
 
-				preset.layers.add(PresetLayer(layer, enabled, volume))
+					preset.layers.add(PresetLayer(layer, enabled, volume))
+				}
 			}
 		}
 

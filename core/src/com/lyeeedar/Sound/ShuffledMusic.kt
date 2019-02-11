@@ -56,7 +56,6 @@ class ShuffledMusic : ISoundChannel
 		volume = currentTrack!!.volume
 
 		currentMusic = Gdx.audio.newMusic(Gdx.files.internal("Music/${currentTrack!!.name}.ogg"))
-		currentMusic!!.setOnCompletionListener { nextTrack() }
 
 		currentMusic!!.play()
 		currentMusic!!.volume = getVolume(volume * channelVolume * parentVolume)
@@ -80,7 +79,10 @@ class ShuffledMusic : ISoundChannel
 
 	override fun update(delta: Float)
 	{
-
+		if (canPlay && currentMusic?.isPlaying == false)
+		{
+			nextTrack()
+		}
 	}
 
 	override fun play()

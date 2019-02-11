@@ -43,9 +43,13 @@
 		<Data Name="OneShots" meta:RefKey="Collection">
 			<Data Name="OneShot" meta:RefKey="Struct">
 				<Data Name="Name" meta:RefKey="String" />
-				<Data Name="File" BasePath="Sounds" StripExtension="True" AllowedFileTypes="mp3,ogg" SkipIfDefault="False" meta:RefKey="File" />
-				<Data Name="Pitch" Name1="Min" Name2="Max" Min="0.5" Max="2" Default="0.9,1.1" SkipIfDefault="False" meta:RefKey="Vector" />
-				<Data Name="Volume" Name1="Min" Name2="Max" Min="0" Max="1" Default="0.4,0.6" SkipIfDefault="False" meta:RefKey="Vector" />
+				<Data Name="Sounds" MinCount="1" meta:RefKey="Collection">
+					<Data Name="Sound" meta:RefKey="Struct">
+						<Data Name="Pitch" Name1="Min" Name2="Max" Min="0.5" Max="2" Default="0.9,1.1" SkipIfDefault="False" meta:RefKey="Vector" />
+						<Data Name="Volume" Name1="Min" Name2="Max" Min="0" Max="1" Default="0.4,0.6" SkipIfDefault="False" meta:RefKey="Vector" />
+						<Data Name="File" BasePath="Sounds" StripExtension="True" AllowedFileTypes="mp3,ogg" SkipIfDefault="False" meta:RefKey="File" />
+					</Data>
+				</Data>
 			</Data>
 		</Data>
 	</Definition>

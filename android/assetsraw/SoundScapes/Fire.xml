@@ -1,0 +1,92 @@
+<SoundScape xmlns:meta="Editor">
+	<Layers>
+		<Layer>
+			<Name>BGM (Van Helsing)</Name>
+			<Sounds>
+				<ShuffledMusic Volume="0.6">
+					<Track>
+						<File>Action/Van Helsing soundtrack ( Track two ) Burn it down!</File>
+						<Volume>1</Volume>
+					</Track>
+					<Track>
+						<File>Action/Van Helsing soundtrack elleven Final battle</File>
+						<Volume>1</Volume>
+					</Track>
+					<Track>
+						<File>Action/Van Helsing soundtrack five Attacking Brides</File>
+						<Volume>1</Volume>
+					</Track>
+					<Track>
+						<File>Action/Van Helsing soundtrack track eight Transylvnian horses</File>
+						<Volume>1</Volume>
+					</Track>
+				</ShuffledMusic>
+			</Sounds>
+		</Layer>
+		<Layer>
+			<Name>Fire</Name>
+			<Sounds>
+				<LoopedMusic>
+					<File>Effects/249418__midimagician__fire-burning-loop</File>
+					<Volume>0.8,1</Volume>
+					<SwapTime>4,9</SwapTime>
+				</LoopedMusic>
+			</Sounds>
+		</Layer>
+		<Layer>
+			<Name>Wood</Name>
+			<Sounds>
+				<RepeatingSound>
+					<File>WoodCrash1</File>
+					<Type>Interval</Type>
+					<Repeat>30,90</Repeat>
+					<Pitch>0.5,0.7</Pitch>
+					<Volume>0.6,0.8</Volume>
+				</RepeatingSound>
+				<RepeatingSound>
+					<File>WoodCrash2</File>
+					<Type>Interval</Type>
+					<Repeat>30,90</Repeat>
+					<Pitch>0.5,0.7</Pitch>
+					<Volume>0.6,0.8</Volume>
+				</RepeatingSound>
+				<RepeatingSound>
+					<File>WoodCrash3</File>
+					<Type>Interval</Type>
+					<Repeat>30,90</Repeat>
+					<Pitch>0.5,0.7</Pitch>
+					<Volume>0.6,0.8</Volume>
+				</RepeatingSound>
+				<RepeatingSound>
+					<File>WoodCrash4</File>
+					<Type>Interval</Type>
+					<Repeat>30,90</Repeat>
+					<Pitch>0.5,0.7</Pitch>
+					<Volume>0.6,0.8</Volume>
+				</RepeatingSound>
+			</Sounds>
+		</Layer>
+	</Layers>
+	<Presets>
+		<Preset>
+			<Name>Default</Name>
+			<Layers>
+				<Struct>
+					<Layer>BGM (Van Helsing)</Layer>
+					<Enabled>true</Enabled>
+					<Volume>1</Volume>
+				</Struct>
+				<Struct>
+					<Layer>Fire</Layer>
+					<Enabled>true</Enabled>
+					<Volume>0.4</Volume>
+				</Struct>
+				<Struct>
+					<Layer>Wood</Layer>
+					<Enabled>true</Enabled>
+					<Volume>0.4</Volume>
+				</Struct>
+			</Layers>
+		</Preset>
+	</Presets>
+</SoundScape>

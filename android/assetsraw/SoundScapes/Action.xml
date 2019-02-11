@@ -28,15 +28,67 @@
 			<Sounds>
 				<ShuffledMusic Volume="1">
 					<Track>
-						<File>Korvosa/Darkest Dungeon - Combat Music</File>
+						<File>DarkestDungeon/04 Combat in the Ruins</File>
 						<Volume>1</Volume>
 					</Track>
 					<Track>
-						<File>Korvosa/Darkest Dungeon OST - Crimson Court Bloodletting (2017) HQ Official</File>
+						<File>DarkestDungeon/06 Battle in the Warrens</File>
 						<Volume>1</Volume>
 					</Track>
 					<Track>
-						<File>Korvosa/Darkest Dungeon OST - Town in Chaos - Stuart Chatwood (2016) HQ Official</File>
+						<File>DarkestDungeon/07 Return to the Warrens</File>
+						<Volume>1</Volume>
+					</Track>
+					<Track>
+						<File>DarkestDungeon/08 Mournweald Encounter</File>
+						<Volume>1</Volume>
+					</Track>
+					<Track>
+						<File>DarkestDungeon/11 The Cove Battle</File>
+						<Volume>1</Volume>
+					</Track>
+					<Track>
+						<File>DarkestDungeon/12 The Final Combat</File>
+						<Volume>1</Volume>
+					</Track>
+					<Track>
+						<File>DarkestDungeon/14 Town in Chaos</File>
+						<Volume>1</Volume>
+					</Track>
+					<Track>
+						<File>DarkestDungeon/15 The Cove Battle Siren (feat. Jennifer Chao)</File>
+						<Volume>1</Volume>
+					</Track>
+					<Track>
+						<File>DarkestDungeon/16 Bloodletting of the Crimson Court</File>
+						<Volume>1</Volume>
+					</Track>
+					<Track>
+						<File>DarkestDungeon/17 A Mocking Thirst</File>
+						<Volume>1</Volume>
+					</Track>
+					<Track>
+						<File>DarkestDungeon/18 Forbidden Tannin</File>
+						<Volume>1</Volume>
+					</Track>
+					<Track>
+						<File>DarkestDungeon/19 The Blasted Heath</File>
+						<Volume>1</Volume>
+					</Track>
+					<Track>
+						<File>DarkestDungeon/20 Dark Mitochondria</File>
+						<Volume>1</Volume>
+					</Track>
+					<Track>
+						<File>DarkestDungeon/21 The Senescence</File>
+						<Volume>1</Volume>
+					</Track>
+					<Track>
+						<File>DarkestDungeon/22 The Chloroplast of Cosmarium</File>
+						<Volume>1</Volume>
+					</Track>
+					<Track>
+						<File>DarkestDungeon/23 All Things Must Come</File>
 						<Volume>1</Volume>
 					</Track>
 				</ShuffledMusic>
@@ -95,12 +147,12 @@
 			<Layers>
 				<Struct>
 					<Layer>BGM (Van Helsing)</Layer>
-					<Enabled>true</Enabled>
+					<Enabled>false</Enabled>
 					<Volume>1</Volume>
 				</Struct>
 				<Struct>
 					<Layer>BGM (Darkest Dungeon)</Layer>
-					<Enabled>false</Enabled>
+					<Enabled>true</Enabled>
 					<Volume>1</Volume>
 				</Struct>
 				<Struct>
@@ -125,12 +177,12 @@
 			<Layers>
 				<Struct>
 					<Layer>BGM (Van Helsing)</Layer>
-					<Enabled>true</Enabled>
+					<Enabled>false</Enabled>
 					<Volume>1</Volume>
 				</Struct>
 				<Struct>
 					<Layer>BGM (Darkest Dungeon)</Layer>
-					<Enabled>false</Enabled>
+					<Enabled>true</Enabled>
 					<Volume>1</Volume>
 				</Struct>
 				<Struct>
@@ -155,12 +207,12 @@
 			<Layers>
 				<Struct>
 					<Layer>BGM (Van Helsing)</Layer>
-					<Enabled>true</Enabled>
+					<Enabled>false</Enabled>
 					<Volume>1</Volume>
 				</Struct>
 				<Struct>
 					<Layer>BGM (Darkest Dungeon)</Layer>
-					<Enabled>false</Enabled>
+					<Enabled>true</Enabled>
 					<Volume>1</Volume>
 				</Struct>
 				<Struct>
@@ -183,10 +235,14 @@
 	</Presets>
 	<OneShots>
 		<OneShot>
-			<Name>Horn</Name>
-			<File>194625__harbour11__trumpet1</File>
-			<Pitch>0.9,1.1</Pitch>
-			<Volume>0.4,0.6</Volume>
+			<Name>Crow</Name>
+			<Sounds>
+				<Sound>
+					<Pitch>0.9,1.1</Pitch>
+					<Volume>0.4,0.6</Volume>
+					<File>crow</File>
+				</Sound>
+			</Sounds>
 		</OneShot>
 	</OneShots>
 </SoundScape>

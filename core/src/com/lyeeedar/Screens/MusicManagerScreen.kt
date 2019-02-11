@@ -79,8 +79,9 @@ class MusicManagerScreen : AbstractScreen()
 								synchronized(this@MusicManagerScreen)
 								{
 									queuedSoundScape = loadSoundScape(soundScape)
+									queuedSoundScape!!.create()
 									queuedSoundScape!!.volume = currentSoundScape?.volume ?: s.value
-									fillSoundTable(queuedSoundScape!!, soundScape)
+									fillSoundTable(queuedSoundScape!!, queuedSoundScape!!.name)
 								}
 							}
 						 }
@@ -122,8 +123,8 @@ class MusicManagerScreen : AbstractScreen()
 				synchronized(this@MusicManagerScreen)
 				{
 					soundScape.applyPreset(preset)
+					fillSoundTable(soundScape, name)
 				}
-				fillSoundTable(soundScape, name)
 			}
 			presetTable.add(button).width(150f).pad(5f)
 		}
@@ -206,7 +207,7 @@ class MusicManagerScreen : AbstractScreen()
 			button.addClickListener {
 				oneShot.play()
 			}
-			oneShotsTable.add(button).growX()
+			oneShotsTable.add(button).growX().pad(5f)
 			oneShotsTable.row()
 		}
 
@@ -244,6 +245,8 @@ class MusicManagerScreen : AbstractScreen()
 					{
 						if (exitThread)
 						{
+							hasThread = false
+							exitThread = false
 							return
 						}
 
@@ -256,7 +259,6 @@ class MusicManagerScreen : AbstractScreen()
 								currentSoundScape = queuedSoundScape
 								queuedSoundScape = null
 
-								currentSoundScape!!.create()
 								currentSoundScape!!.play()
 							}
 						}
@@ -288,6 +290,8 @@ class MusicManagerScreen : AbstractScreen()
 
 		fun launchThread()
 		{
+			if (instance?.hasThread == true) return
+
 			object : Thread()
 			{
 				override fun run()

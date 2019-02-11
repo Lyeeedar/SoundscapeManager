@@ -46,7 +46,10 @@ class RepeatingSoundEffect : ISoundChannel
 
 	override fun create()
 	{
-		sound = AssetManager.loadSound(soundName)!!
+		if (sound == null)
+		{
+			sound = AssetManager.loadSound(soundName)!!
+		}
 	}
 
 	override fun changeVolume(volume: Float)
@@ -56,6 +59,8 @@ class RepeatingSoundEffect : ISoundChannel
 
 	override fun play()
 	{
+		create()
+
 		canPlay = true
 	}
 
@@ -92,7 +97,10 @@ class RepeatingSoundEffect : ISoundChannel
 			{
 				if (canPlay)
 				{
-					soundID = sound!!.play(getVolume(volume * parentVolume), pitch, 0f)
+					val volume = getVolume(volume * parentVolume)
+					val pitch = pitch
+					soundID = sound!!.play(volume, pitch, 0f)
+					System.out.println("Playing $soundName at $volume volume and $pitch pitch")
 					isPlaying = true
 				}
 

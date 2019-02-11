@@ -8,7 +8,7 @@ fun getVolume(volume: Float): Float
 {
 	val soundVolume = (volume * MAX_VOLUME).toInt()
 	val finalvolume = 1.0f - (Math.log(MAX_VOLUME - soundVolume) / Math.log(MAX_VOLUME)).toFloat()
-	return finalvolume
+	return volume
 }
 
 interface ISoundChannel

@@ -52,8 +52,8 @@
 			<Sounds>
 				<LoopedMusic>
 					<File>Effects/rain2</File>
-					<Volume>0.8,1</Volume>
-					<SwapTime>0.5,2</SwapTime>
+					<Volume>1,1</Volume>
+					<SwapTime>20,20</SwapTime>
 				</LoopedMusic>
 			</Sounds>
 		</Layer>
